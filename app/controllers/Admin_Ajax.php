@@ -1,0 +1,284 @@
+<?php
+
+class Admin_Ajax extends Controller {
+
+    function __construct() {
+        parent::__construct();
+    }
+
+    public function index() {
+        $this->ajaxCall();
+    }
+
+    public function ajaxCall() {
+        //session güvenlik kontrolü
+        $form = $this->load->otherClasses('Form');
+
+        if ($_POST && $_SERVER["HTTP_X_REQUESTED_WITH"] == "XMLHttpRequest") {
+            $sonuc = array();
+            //model bağlantısı
+            $Panel_Model = $this->load->model("Panel_Model");
+
+            $form->post("tip", true);
+            $tip = $form->values['tip'];
+
+            Switch ($tip) {
+                case "profilDuzenle":
+                    $form->post("ad", true);
+                    $form->post("adres", true);
+                    $form->post("sehir", true);
+                    $form->post("cinsiyetval", true);
+                    $form->post("email", true);
+                    $ad = $form->values['ad'];
+                    $adres = $form->values['adres'];
+                    $sehir = $form->values['sehir'];
+                    $cinsiyetval = $form->values['cinsiyetval'];
+                    $email = $form->values['email'];
+                    if ($ad != "") {
+                        if ($adres != "") {
+                            if ($sehir != "") {
+                                if ($cinsiyetval != 0) {
+                                    if ($email != "") {
+                                        $id = Session::get("ID");
+                                        if ($form->submit()) {
+                                            $dataProfil = array(
+                                                'fwkullaniciAd' => $ad,
+                                                'fwkullaniciAdres' => $adres,
+                                                'fwkullaniciSehir' => $sehir,
+                                                'fwkullaniciCinsiyet' => $cinsiyetval,
+                                                'fwkullaniciEmail' => $email
+                                            );
+                                        }
+                                        $result = $Panel_Model->profilupdate($dataProfil, $id);
+                                        if ($result) {
+                                            $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                        } else {
+                                            $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                        }
+                                    } else {
+                                        $sonuc["hata"] = "Lütfen maili boş girmeyiniz.";
+                                    }
+                                } else {
+                                    $sonuc["hata"] = "Lütfen cinsiyeti boş girmeyiniz.";
+                                }
+                            } else {
+                                $sonuc["hata"] = "Lütfen şehri boş girmeyiniz.";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen adresi boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
+                    }
+                    break;
+                case "profilSil":
+                    $form->post("yeniveri", true);
+                    $id = $form->values['yeniveri'];
+                    $resultdelete = $Panel_Model->profildelete($id);
+                    if ($resultdelete) {
+                        $sonuc["result"] = "İşlem Başarılı.";
+                    } else {
+                        $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                    }
+                    break;
+                default :
+                    header("Location:" . SITE_URL);
+                    break;
+
+                case "KategoriEkle":
+                    $form->post("kategoriAd", true);
+                    $form->post("kicerik", true);
+                    $kategoriAd = $form->values['kategoriAd'];
+                    $kicerik = $form->values['kicerik'];
+
+                    if ($kicerik != "") {
+                        if ($kategoriAd != "") {
+                            if ($form->submit()) {
+                                $dataKategori = array(
+                                    'ad' => $kategoriAd,
+                                    'icerik' => $kicerik
+                                );
+                                $result = $Panel_Model->kategoriinsert($dataKategori);
+                                if ($result) {
+                                    $sonuc["result"] = "Başarılı bir şekilde kategori eklenmiştir.";
+                                } else {
+                                    $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                }
+                            } else {
+                                
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen kategoriyi boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen iceriği boş girmeyiniz.";
+                    }
+                    break;
+
+                case "katduzenle":
+                    error_log("11111111");
+                    $form->post("ad", true);
+                    $form->post("icerik", true);
+                    $form->post("id", true);
+                    $ad = $form->values['ad'];
+                    $icerik = $form->values['icerik'];
+                    $id = $form->values['id'];
+                    error_log($ad);
+                    error_log($icerik);
+                    error_log($id);
+                    if ($ad != "") {
+                        if (icerik != "") {
+                            if ($form->submit()) {
+                                $dataKategori = array(
+                                    'ad' => $ad,
+                                    'icerik' => $icerik
+                                );
+                            }
+                            $result = $Panel_Model->kategoriupdate($dataKategori, $id);
+                            if ($result) {
+                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                            } else {
+                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen içeriği boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
+                    }
+                    break;
+              case "katEkle":
+                    $form->post("ad", true);
+                    $form->post("icerik", true);
+                    $ad = $form->values['ad'];
+                    $icerik = $form->values['icerik'];
+                    if ($ad != "") {
+                        if (icerik != "") {
+                            if ($form->submit()) {
+                                $dataKategori = array(
+                                    'ad' => $ad,
+                                    'icerik' => $icerik
+                                );
+                            }
+                            $result = $Panel_Model->kategoriinsert($dataKategori, $id);
+                            if ($result) {
+                                $sonuc["result"] = "Başarılı bir şekilde kategori eklenmiştir.";
+                            } else {
+                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen içeriği boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
+                    }
+                    break;
+                case "urunSil":
+                    $form->post("id", true);
+                    $id = $form->values['id'];
+                    $resultdelete = $Panel_Model->urundelete($id);
+                    if ($resultdelete) {
+                        $sonuc["result"] = "İşlem Başarılı.";
+                    } else {
+                        $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                    }
+                    break;
+                default :
+                    header("Location:" . SITE_URL);
+                    break;
+                case "urunDuzenle":
+                    $form->post("aciklama", true);
+                    $form->post("fiyat", true);
+                    $form->post("kategoriID", true);
+                    $form->post("id", true);
+
+                    $aciklama = $form->values['aciklama'];
+                    $fiyat = $form->values['fiyat'];
+                    $kategoriID = $form->values['kategoriID'];
+                    $id = $form->values['id'];
+                    error_log($kategoriID);
+                    if ($aciklama != "") {
+                        if ($fiyat != "") {
+                            if ($kategoriID != -1) {
+                                if ($form->submit()) {
+                                    $dataUrun = array(
+                                        'urun_aciklama' => $aciklama,
+                                        'urun_fiyat' => $fiyat,
+                                        'urun_kategori' => $kategoriID
+                                    );
+                                }
+                                $result = $Panel_Model->urunupdate($dataUrun, $id);
+                                if ($result) {
+                                    $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                } else {
+                                    $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                }
+                            } else {
+                                $sonuc["hata"] = "Lütfen bir kategori seçiniz.";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen fiyatı boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen açıklamayı boş girmeyiniz.";
+                    }
+                    break;
+                default :
+                    header("Location:" . SITE_URL);
+                    break;
+
+
+                case "urunekle":
+                    $form->post("urunresim", true);
+                    $form->post("urunaciklama", true);
+                    $form->post("urunkategori", true);
+                    $form->post("urunfiyat", true);
+                    $urunresim = $form->values['urunresim'];
+                    $urunaciklama = $form->values['urunaciklama'];
+                    $urunkategori = $form->values['urunkategori'];
+                    $urunfiyat = $form->values['urunfiyat'];
+                    if ($urunresim != "") {
+                        if ($urunaciklama != "") {
+                            if ($urunkategori != "") {
+                                if ($urunfiyat != "") {
+                                    if ($form->submit()) {
+                                        $dataurun = array(
+                                            'urun_resim' => $urunresim,
+                                            'urun_aciklama' => $urunaciklama,
+                                            'urun_kategori' => $urunkategori,
+                                            'urun_fiyat' => $urunfiyat
+                                        );
+                                        $result = $Panel_Model->uruninsert($dataurun);
+                                        if ($result) {
+                                            $sonuc["result"] = "Başarılı bir şekilde urun eklenmiştir.";
+                                        } else {
+                                            $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                        }
+                                    } else {
+                                        
+                                    }
+                                } else {
+                                    $sonuc["hata"] = "Lütfen fiyat bölümünü  boş bırakmayınız.";
+                                }
+                            } else {
+                                $sonuc["hata"] = "Lütfen kategori seciniz";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen açıklamayı  boş girmeyiniz.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen resimi boş girmeyiniz.";
+                    }
+
+
+                    break;
+            }
+            echo json_encode($sonuc);
+        } else {
+            header("Location:" . SITE_URL);
+        }
+    }
+
+}
+?>
+                                                                                                     

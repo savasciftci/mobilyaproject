@@ -31,7 +31,9 @@
 
                                             <td><?php echo $model[$k]["ad"]; ?></td>
                                             <td><?php echo $model[$k]["icerik"]; ?></td>
-                                            <td><a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" style="cursor:pointer"><i  class="fa fa-edit" style="color:green"></i></a> <i class="fa fa-trash" style="color:red;cursor:pointer"></i></td>
+                                            <td><a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" style="cursor:pointer"><i  class="fa fa-edit" style="color:green"></i></a> 
+                                            <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a></td>
+                            
 
                                     </tr>
                                 <?php } ?>

@@ -91,12 +91,10 @@
   <div class="container">
      <div class="navbar-header">
         <!-- Stat Toggle Nav Link For Mobiles -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-           <i class="fa fa-bars"></i>
-       </button>
+        
        <!-- End Toggle Nav Link For Mobiles -->
-       <a class="navbar-brand" href="<?php echo SITE_URL; ?>"><img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/margo.png"></a>
-   </div>
+       <div align="left" style=""> <a  href="<?php echo SITE_URL; ?>"><img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/margo.png"></a></div>
+     </div>
    <div class="navbar-collapse collapse">
       <!-- Stat Search -->
       

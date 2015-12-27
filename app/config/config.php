@@ -7,6 +7,7 @@
 //sitenin url bilgisi
 define("SITE_URL", "http://localhost/BadoFramework");
 define("SITE_URLA", "http://localhost/BadoFramework/Admin");
+define("SITE_URLUResim", "http://localhost/BadoFramework/upload/urunler/");
 
 //site back end 
 define("SITE_BACK_ASSETS", "http://localhost/BadoFramework/app/views/Template_BackEnd/assets");

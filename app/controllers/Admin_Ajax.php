@@ -147,7 +147,7 @@ class Admin_Ajax extends Controller {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
                     }
                     break;
-              case "katEkle":
+                case "katEkle":
                     $form->post("ad", true);
                     $form->post("icerik", true);
                     $ad = $form->values['ad'];
@@ -171,6 +171,16 @@ class Admin_Ajax extends Controller {
                         }
                     } else {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
+                    }
+                    break;
+                    case "kategoriSil":
+                    $form->post("id", true);
+                    $id = $form->values['id'];
+                    $resultdelete = $Panel_Model->kategoridelete($id);
+                    if ($resultdelete) {
+                        $sonuc["result"] = "Ä°ÅŸlem BaÅŸarÄ±lÄ±.";
+                    } else {
+                        $sonuc["hata"] = "Bir hata oluÅŸtu.Tekrar deneyiniz";
                     }
                     break;
                 case "urunSil":
@@ -228,47 +238,84 @@ class Admin_Ajax extends Controller {
                     break;
 
 
-                case "urunekle":
-                    $form->post("urunresim", true);
+                case "urunEkle":
+                    require "app/otherClasses/class.upload.php";
                     $form->post("urunaciklama", true);
                     $form->post("urunkategori", true);
                     $form->post("urunfiyat", true);
-                    $urunresim = $form->values['urunresim'];
                     $urunaciklama = $form->values['urunaciklama'];
                     $urunkategori = $form->values['urunkategori'];
                     $urunfiyat = $form->values['urunfiyat'];
-                    if ($urunresim != "") {
-                        if ($urunaciklama != "") {
-                            if ($urunkategori != "") {
-                                if ($urunfiyat != "") {
-                                    if ($form->submit()) {
-                                        $dataurun = array(
-                                            'urun_resim' => $urunresim,
-                                            'urun_aciklama' => $urunaciklama,
-                                            'urun_kategori' => $urunkategori,
-                                            'urun_fiyat' => $urunfiyat
-                                        );
-                                        $result = $Panel_Model->uruninsert($dataurun);
-                                        if ($result) {
-                                            $sonuc["result"] = "Başarılı bir şekilde urun eklenmiştir.";
+                    error_log($urunaciklama);
+                    if ($urunaciklama != "") {
+                        if ($urunkategori != "") {
+                            if ($urunfiyat != "") {
+                                $realName = $_FILES['file']['name'];
+                                if ($realName != "") {
+                                    $image = new Upload($_FILES['file']);
+                                    if ($image->uploaded) {
+                                        // sadece resim formatları yüklensin
+                                        $image->allowed = array('image/*');
+                                        $image->image_min_height = 250;
+                                        $image->image_min_width = 250;
+                                        $image->image_max_height = 2000;
+                                        $image->image_max_width = 2000;
+                                        $image->file_new_name_body = time();
+                                        $image->file_name_body_pre = 'mobilya_';
+                                        $image->image_resize = true;
+                                        $image->image_ratio_crop = true;
+                                        $image->image_x = 400;
+                                        $image->image_y = 400;
+                                        $image->Process("upload/urunler");
+
+                                        if ($image->processed) {
+                                            if ($form->submit()) {
+                                                $dataurun = array(
+                                                    'urun_aciklama' => $urunaciklama,
+                                                    'urun_kategori' => $urunkategori,
+                                                    'urun_fiyat' => $urunfiyat,
+                                                    'urun_resim' => $image->file_dst_name
+                                                );
+                                            }
+                                            $result = $Panel_Model->uruninsert($dataurun);
+                                            if ($result) {
+                                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                            } else {
+                                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                            }
                                         } else {
-                                            $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                            $sonuc["hata"] = $image->error;
                                         }
                                     } else {
-                                        
+                                        $sonuc["hata"] = $image->error;
                                     }
                                 } else {
-                                    $sonuc["hata"] = "Lütfen fiyat bölümünü  boş bırakmayınız.";
+                                    $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                 }
-                            } else {
-                                $sonuc["hata"] = "Lütfen kategori seciniz";
+                            }
+                            /*
+                              if ($form->submit()) {
+                              $dataurun = array(
+                              'urun_aciklama' => $urunaciklama,
+                              'urun_kategori' => $urunkategori,
+                              'urun_fiyat' => $urunfiyat
+                              );
+                              $result = $Panel_Model->uruninsert($dataurun);
+                              if ($result) {
+                              $sonuc["result"] = "Başarılı bir şekilde urun eklenmiştir.";
+                              } else {
+                              $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                              }
+                              } */ else {
+                                $sonuc["hata"] = "Lütfen fiyat bölümünü  boş bırakmayınız.";
                             }
                         } else {
-                            $sonuc["hata"] = "Lütfen açıklamayı  boş girmeyiniz.";
+                            $sonuc["hata"] = "Lütfen kategori seciniz";
                         }
                     } else {
-                        $sonuc["hata"] = "Lütfen resimi boş girmeyiniz.";
+                        $sonuc["hata"] = "Lütfen açıklamayı  boş girmeyiniz.";
                     }
+
 
 
                     break;

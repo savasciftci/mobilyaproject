@@ -18,6 +18,7 @@ class Home extends Controller {
 
     }
     public function urunler(){
+        
          $this->load->view("Template_FrontEnd/header");
          $this->load->view("Template_FrontEnd/urunler");
         $this->load->view("Template_FrontEnd/footer");

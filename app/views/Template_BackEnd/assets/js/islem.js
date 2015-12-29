@@ -25,6 +25,38 @@ $(document).on("click", "button#profilDuzenle", function (e) {
         }
     });
 });
+
+
+$(document).on('click', 'a#usil', function (e) {
+    var id = $(this).attr("value");
+    reset();
+    alertify.confirm("Silmek İstiyormusunuz", function (e) {
+        if (e) {
+            $.ajax({
+                type: "post",
+                url: SITE_URL + "/Admin_Ajax",
+                cache: false,
+                dataType: "json",
+                data: {"id": id, "tip": "urunSil"},
+                success: function (cevap) {
+                    if (cevap.hata) {
+                        reset();
+                        alertify.alert(cevap.hata);
+                        return false;
+                    } else {
+                        $("tr#uruntable_" + id).remove();
+                        reset();
+                        alertify.success(cevap.result);
+                        return false;
+                    }
+                }
+            });
+        } else {
+            alertify.error("Silme İşlemi iptal edildi");
+        }
+    });
+});
+
 $(document).on("click", "button#profilSil", function (e) {
     reset();
     alertify.confirm("Silmek İstiyormusunuz", function (e) {
@@ -54,30 +86,37 @@ $(document).on("click", "button#profilSil", function (e) {
     });
 });
 
+
 $(document).on('click', 'a#ksil', function (e) {
     var id = $(this).attr("value");
-    if(confirm('Kategori silmek istediÄŸinize emin misiniz?')){
-          $.ajax({
-        type: "post",
-        url: SITE_URL + "/Admin_Ajax",
-        cache: false,
-        dataType: "json",
-        data: {"id": id, "tip": "kategoriSil"},
-        success: function (cevap) {
-            if (cevap.hata) {
-                reset();
-                alertify.alert(cevap.hata);
-                return false;
-            } else {
-                 $("tr#kattable_" + id).remove();                      
-                reset();
-                alertify.success(cevap.result);
-                return false;
-            }
+    reset();
+    alertify.confirm("Kategoriyi silmek İstiyormusunuz", function (e) {
+        if (e) {
+            $.ajax({
+                type: "post",
+                url: SITE_URL + "/Admin_Ajax",
+                cache: false,
+                dataType: "json",
+                data: {"id": id, "tip": "kategoriSil"},
+                success: function (cevap) {
+                    if (cevap.hata) {
+                        reset();
+                        alertify.alert(cevap.hata);
+                        return false;
+                    } else {
+                        $("tr#kattable_" + id).remove();
+                        reset();
+                        alertify.success(cevap.result);
+                        return false;
+                    }
+                }
+            });
+        } else {
+            alertify.error("Silme İşlemi iptal edildi");
         }
     });
-    }
 });
+
 $(document).on("click", "button#KategoriEkle", function (e) {
     var kategoriAd = $("#kategoriAd").val();
     var kicerik = $("#kicerik").val();
@@ -86,7 +125,7 @@ $(document).on("click", "button#KategoriEkle", function (e) {
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"kategoriAd": kategoriAd,"kicerik": kicerik, "tip": "KategoriEkle"},
+        data: {"kategoriAd": kategoriAd, "kicerik": kicerik, "tip": "KategoriEkle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -105,14 +144,14 @@ $(document).on("click", "button#urunekle", function (e) {
     var urunresim = $("#urunresim").val();
     var urunaciklama = $("#urunaciklama").val();
     var urunkategori = $("#urunkategori").val();
-    var urunfiyat     = $("#urunfiyat").val();
-   
+    var urunfiyat = $("#urunfiyat").val();
+
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"urunresim": urunresim,"urunaciklama": urunaciklama,"urunkategori": urunkategori,"urunfiyat": urunfiyat, "tip": "urunekle"},
+        data: {"urunresim": urunresim, "urunaciklama": urunaciklama, "urunkategori": urunkategori, "urunfiyat": urunfiyat, "tip": "urunekle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -132,33 +171,41 @@ $(document).on('click', 'a#uduzenle', function (e) {
     var id = $(this).attr("value");
     var aciklama = $(this).parent().parent().find('td:eq(0)').text();
     var fiyat = $(this).parent().parent().find('td:eq(1)').text();
-        var kategoriID = $(this).parent().parent().find('td:eq(2)').attr("value");
-        var urun_resim =  $("#urun_resim").val();
-   // var kategori = $(this).parent().parent().find('td:eq(2)').text();
+    var kategoriID = $(this).parent().parent().find('td:eq(2)').attr("value");
+    var urun_resim = $("#urun_resim").val();
     $("#sakliID").val(id);
     $("#durunAciklama").val(aciklama);
     $("#durunFiyat").val(fiyat);
-    
-     $("#urunresim").val(urun_resim);
-        $("#durunKategori").val(kategoriID);
- 
- 
+
+    $("#urunresim").val(urun_resim);
+    $("#urunkategori").val(kategoriID);
     $("#urunModal").modal('show');
 });
 
 
 $(document).on('click', '#urunDuzenle', function (e) {
+    var formData = new FormData();
     var aciklama = $("#durunAciklama").val();
     var fiyat = $("#durunFiyat").val();
-    var kategoriID =  $("#durunKategori").val();
-    var kategoriAdi = $("#durunKategori option[value=" + kategoriID + "]").text();
+    var kategoriID = $("#urunkategori").val();
+    var kategoriAdi = $("#urunkategori option[value=" + kategoriID + "]").text();
     var id = $("#sakliID").val();
+    formData.append('aciklama', aciklama);
+    formData.append('kategoriID', kategoriID);
+    formData.append('fiyat', fiyat);
+    formData.append('id', id);
+    formData.append('file', $("#resimGuncelle")[0].files[0]);
+    formData.append('tip', "urunDuzenle");
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"aciklama": aciklama, "fiyat": fiyat,"kategoriID": kategoriID, "id": id, "tip": "urunDuzenle"},
+        data: formData,
+        async: false,
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -167,7 +214,7 @@ $(document).on('click', '#urunDuzenle', function (e) {
             } else {
                 $("tr#uruntable_" + id + " td:eq(0)").text(aciklama);
                 $("tr#uruntable_" + id + " td:eq(1)").text(fiyat);
-                 $("tr#uruntable_" + id + " td:eq(2)").text(kategoriAdi);
+                $("tr#uruntable_" + id + " td:eq(2)").text(kategoriAdi);
                 reset();
                 alertify.success(cevap.result);
                 $("#urunModal").modal('hide');
@@ -176,24 +223,23 @@ $(document).on('click', '#urunDuzenle', function (e) {
         }
     });
 });
-
 $(document).on('click', '#urunEkle', function (e) {
- $("#urunEkleModal").modal('show');
+    $("#urunEkleModal").modal('show');
 });
 
 $(document).on('click', '#urunEklemeIslemi', function (e) {
-var formData = new FormData();
+    var formData = new FormData();
     var aciklama = $("#edurunAciklama").val();
     var kategori = $("#edurunKategori").val();
     var fiyat = $("#edurunFiyat").val();
-formData.append('urunaciklama', aciklama);
+    formData.append('urunaciklama', aciklama);
     formData.append('urunkategori', kategori);
     formData.append('urunfiyat', fiyat);
-     formData.append('file', $("#fileInput")[0].files[0]);
+    formData.append('file', $("#fileInput")[0].files[0]);
     formData.append('tip', "urunEkle");
     $.ajax({
         type: "post",
-         url: SITE_URL + "/Admin_Ajax",
+        url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
         data: formData,
@@ -218,7 +264,7 @@ formData.append('urunaciklama', aciklama);
 
 
 $(document).on('click', '#katEkle', function (e) {
- $("#katEkleModal").modal('show');
+    $("#katEkleModal").modal('show');
 });
 $(document).on('click', '#katEklemeIslemi', function (e) {
 
@@ -284,3 +330,53 @@ $(document).on('click', '#katduzenle', function (e) {
         }
     });
 });
+
+var image_holder = $("#image-holder");
+window.onload = function () {
+    var fileInput = document.getElementById('fileInput');
+    var fileDisplayArea = document.getElementById('fileDisplayArea');
+
+    fileInput.addEventListener('change', function (e) {
+        var file = fileInput.files[0];
+        var imageType = /image.*/;
+        if (file.type.match(imageType)) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                fileDisplayArea.innerHTML = "";
+
+                var img = new Image();
+                img.src = reader.result;
+
+                fileDisplayArea.appendChild(img);
+            }
+            reader.readAsDataURL(file);
+        } else {
+            fileDisplayArea.innerHTML = "Dosya Yüklenemedi!!"
+        }
+    });
+}
+
+var image_holder = $("#image-holder");
+window.onload = function () {
+    var resimGuncelle = document.getElementById('resimGuncelle');
+    var dosyaAlani = document.getElementById('dosyaAlani');
+
+    resimGuncelle.addEventListener('change', function (e) {
+        var file = resimGuncelle.files[0];
+        var imageType = /image.*/;
+        if (file.type.match(imageType)) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                dosyaAlani.innerHTML = "";
+
+                var img = new Image();
+                img.src = reader.result;
+
+                dosyaAlani.appendChild(img);
+            }
+            reader.readAsDataURL(file);
+        } else {
+            dosyaAlani.innerHTML = "Dosya Yüklenemedi!!"
+        }
+    });
+}

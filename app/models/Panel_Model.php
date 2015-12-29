@@ -76,6 +76,9 @@ class Panel_Model extends Model {
     public function urundelete($gelenid) {
         return ($this->db->delete("urunler", "urun_id=$gelenid"));
     }
+    public function kategoridelete($gelenid) {
+        return ($this->db->delete("kategori", "ID=$gelenid"));
+    }
 
 }
 

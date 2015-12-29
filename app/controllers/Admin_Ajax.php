@@ -173,14 +173,14 @@ class Admin_Ajax extends Controller {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
                     }
                     break;
-                    case "kategoriSil":
+                case "kategoriSil":
                     $form->post("id", true);
                     $id = $form->values['id'];
                     $resultdelete = $Panel_Model->kategoridelete($id);
                     if ($resultdelete) {
-                        $sonuc["result"] = "Ä°ÅŸlem BaÅŸarÄ±lÄ±.";
+                        $sonuc["result"] = "İşlem Başarılı.";
                     } else {
-                        $sonuc["hata"] = "Bir hata oluÅŸtu.Tekrar deneyiniz";
+                        $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                     }
                     break;
                 case "urunSil":
@@ -197,6 +197,7 @@ class Admin_Ajax extends Controller {
                     header("Location:" . SITE_URL);
                     break;
                 case "urunDuzenle":
+                      require "app/otherClasses/class.upload.php";
                     $form->post("aciklama", true);
                     $form->post("fiyat", true);
                     $form->post("kategoriID", true);
@@ -206,23 +207,64 @@ class Admin_Ajax extends Controller {
                     $fiyat = $form->values['fiyat'];
                     $kategoriID = $form->values['kategoriID'];
                     $id = $form->values['id'];
-                    error_log($kategoriID);
                     if ($aciklama != "") {
                         if ($fiyat != "") {
                             if ($kategoriID != -1) {
-                                if ($form->submit()) {
-                                    $dataUrun = array(
-                                        'urun_aciklama' => $aciklama,
-                                        'urun_fiyat' => $fiyat,
-                                        'urun_kategori' => $kategoriID
-                                    );
-                                }
-                                $result = $Panel_Model->urunupdate($dataUrun, $id);
-                                if ($result) {
-                                    $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                $realName = $_FILES['file']['name'];
+                                if ($realName != "") {
+                                    $image = new Upload($_FILES['file']);
+                                    if ($image->uploaded) {
+                                        // sadece resim formatları yüklensin
+                                        $image->allowed = array('image/*');
+                                        $image->image_min_height = 250;
+                                        $image->image_min_width = 250;
+                                        $image->image_max_height = 2000;
+                                        $image->image_max_width = 2000;
+                                        $image->file_new_name_body = time();
+                                        $image->file_name_body_pre = 'mobilya_';
+                                        $image->image_resize = true;
+                                        $image->image_ratio_crop = true;
+                                        $image->image_x = 400;
+                                        $image->image_y = 400;
+                                        $image->Process("upload/urunler");
+                                        if ($image->processed) {
+                                            if ($form->submit()) {
+                                                $dataUrun = array(
+                                                    'urun_aciklama' => $aciklama,
+                                                    'urun_fiyat' => $fiyat,
+                                                    'urun_kategori' => $kategoriID,
+                                                    'urun_resim' => $image->file_dst_name
+                                                );
+                                            }
+                                            $result = $Panel_Model->urunupdate($dataUrun, $id);
+                                            if ($result) {
+                                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                            } else {
+                                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                            }
+                                        } else {
+                                            $sonuc["hata"] = $image->error;
+                                        }
+                                    } else {
+                                        $sonuc["hata"] = $image->error;
+                                    }
                                 } else {
-                                    $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                    $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                 }
+                                /*
+                                  if ($form->submit()) {
+                                  $dataUrun = array(
+                                  'urun_aciklama' => $aciklama,
+                                  'urun_fiyat' => $fiyat,
+                                  'urun_kategori' => $kategoriID
+                                  );
+                                  }
+                                  $result = $Panel_Model->urunupdate($dataUrun, $id);
+                                  if ($result) {
+                                  $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                  } else {
+                                  $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                  } */
                             } else {
                                 $sonuc["hata"] = "Lütfen bir kategori seçiniz.";
                             }
@@ -246,11 +288,11 @@ class Admin_Ajax extends Controller {
                     $urunaciklama = $form->values['urunaciklama'];
                     $urunkategori = $form->values['urunkategori'];
                     $urunfiyat = $form->values['urunfiyat'];
-                    error_log($urunaciklama);
                     if ($urunaciklama != "") {
                         if ($urunkategori != "") {
                             if ($urunfiyat != "") {
                                 $realName = $_FILES['file']['name'];
+                                error_log("2.real nem:".$realName);
                                 if ($realName != "") {
                                     $image = new Upload($_FILES['file']);
                                     if ($image->uploaded) {
@@ -292,21 +334,7 @@ class Admin_Ajax extends Controller {
                                 } else {
                                     $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                 }
-                            }
-                            /*
-                              if ($form->submit()) {
-                              $dataurun = array(
-                              'urun_aciklama' => $urunaciklama,
-                              'urun_kategori' => $urunkategori,
-                              'urun_fiyat' => $urunfiyat
-                              );
-                              $result = $Panel_Model->uruninsert($dataurun);
-                              if ($result) {
-                              $sonuc["result"] = "Başarılı bir şekilde urun eklenmiştir.";
-                              } else {
-                              $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
-                              }
-                              } */ else {
+                            } else {
                                 $sonuc["hata"] = "Lütfen fiyat bölümünü  boş bırakmayınız.";
                             }
                         } else {

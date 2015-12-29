@@ -28,7 +28,7 @@
 
                                             <td><?php echo $model[0][$k]["urun_aciklama"]; ?></td>
                                             <td><?php echo $model[0][$k]["urun_fiyat"]; ?></td>
-                                      <td>       <?php
+                                               <td value="<?php echo $model[0][$k]["urun_kategori"]; ?>">      <?php
                                     $miktar = count($model[1]);
                                     for ($a = 0; $a < $miktar; $a++) {
                                         ?>
@@ -65,8 +65,8 @@
                                   <div class="form-group">
                                         <label for="urunresim">Ürün Resmi</label>
                                         <input id="fileInput" name="fileInput" class="form-control" type="file" />
-                                        <img id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;" src="<?php echo SITE_URLUResim . $model[1]["urun_resim"]; ?>"/>
-                                    </div>
+                                      <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>
+                                        <?php echo SITE_URLUResim . $model[1]["urun_resim"]; ?>  </div>
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Ürün Açıklaması</label>
                                     <div class="col-sm-9">
@@ -117,10 +117,9 @@
                              <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label">Ürün Resim</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="urunresim" name="urunresim" placeholder="Ürün Resmi Seçiniz" value="" required>
-                                    </div>
+                                      <label for="urunresim">Ürün Resmi</label>
+                                        <input id="resimGuncelle" name="resimGuncelle" class="form-control" type="file" />
+                                      <div id="dosyaAlani" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>
                                 </div>
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Ürün Açıklaması</label>
@@ -130,17 +129,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Ürün Kategorisi</label>
-                               <div class="col-sm-9">
-                                            <select class="form-control" id="urunkategori" name="urunkategori" placeholder="Kategori Seçiniz" required>
-                                                <option value="-1">Kategori Seçiniz</option>
-                                                <?php
-                                                $miktar = count($model[1]);
-                                                for ($k = 0; $k < $miktar; $k++) {
-                                                    ?>
-                                                    <option  value="<?php echo $mode[1][$k]["ID"]; ?>"><?php echo $model[1][$k]["ad"]; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>    
+                                <div class="col-sm-9">
+                                        <select class="form-control" id="urunkategori" name="urunkategori" required>
+                                            <option value="-1" selected>Kategori Seçiniz</option>
+                                             <?php
+                                    $miktar = count($model[1]);
+                                    for ($k = 0; $k < $miktar; $k++) {
+                                        ?>
+                                            <option  value="<?php echo $model[1][$k]["ID"]; ?>"><?php echo $model[1][$k]["ad"]; ?></option>
+                                             <?php } ?>
+                                        </select>
+                                        
+                                    </div>     
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Fiyat</label>

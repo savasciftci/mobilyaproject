@@ -66,7 +66,7 @@
                                         <label for="urunresim">Ürün Resmi</label>
                                         <input id="fileInput" name="fileInput" class="form-control" type="file" />
                                       <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>
-                                        <?php echo SITE_URLUResim . $model[1]["urun_resim"]; ?>  </div>
+                                         </div>
                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Ürün Açıklaması</label>
                                     <div class="col-sm-9">

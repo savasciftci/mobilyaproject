@@ -40,6 +40,10 @@ class Panel_Model extends Model {
         $sql = "SELECT ID,ad,icerik FROM kategori";
         return $this->db->select($sql);
     }
+      public function kategoriAnasayfa() {
+        $sql = "SELECT ID,ad,anasayfa_durum FROM kategori where anasayfa_durum=1 ";
+        return $this->db->select($sql);
+    }
 
     public function profilupdate($data, $gelenid) {
         return ($this->db->update("fwkullanicilar", $data, "fwkullaniciID=$gelenid"));
@@ -63,6 +67,11 @@ class Panel_Model extends Model {
     //kategori select formu
     public function urunselect() {
         $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori,urun_tarih FROM urunler";
+        return $this->db->select($sql);
+    }
+    
+    public function urunAnasayfa() {
+        $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori FROM urunler order by urun_id desc limit 0,6";
         return $this->db->select($sql);
     }
 

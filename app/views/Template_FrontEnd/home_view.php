@@ -1,7 +1,7 @@
-
-<section id="home">
-    <div class="col-lg-1"></div>
-    <div class="col-lg-10">
+        <!-- Start Services Icons -->
+        <div class="row">
+            
+            <section id="home">
     <div id="main-slide" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#main-slide" data-slide-to="0" class="active"></li>
@@ -33,34 +33,20 @@
         <a class="right carousel-control" href="#main-slide" data-slide="next">
             <span><i class="fa fa-angle-right"></i></span>
         </a>
-    </div></div>
-    <div class="col-lg-1"></div>
+    </div>
 </section>
-
-<div id="content">
-    <div class="container">
-        <!-- Start Services Icons -->
-        <div class="row">
+        
+            
             <!-- Start Service Icon 1 -->
-            <div class="col-md-4 col-sm-6 service-box service-center">
-                <div class="service-boxed">
-                    <div class="service-icon" style="margin-top:-25px;">
-                        <i class="fa fa-magic icon-medium-effect icon-effect-2"></i>
-                    </div>
-                    <div class="service-content">
-                        <h4>High Quality Theme</h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
-                    </div>
-                </div>
-            </div>
+            <div class="col-lg-2"></div>
             <!-- Start Service Icon 2 -->
             <div class="col-md-4 col-sm-6 service-box service-center">
                 <div class="service-boxed">
                     <div class="service-icon" style="margin-top:-25px;">
-                        <i class="fa fa-eye icon-medium-effect icon-effect-2"></i>
+                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool36.png" />
                     </div>
                     <div class="service-content">
-                        <h4>Retina Display Ready</h4>
+                        <h4>Yerinde Ölçüm</h4>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
                     </div>
                 </div>
@@ -69,190 +55,52 @@
             <div class="col-md-4 col-sm-6 service-box service-center">
                 <div class="service-boxed">
                     <div class="service-icon" style="margin-top:-25px;">
-                        <i class="fa fa-rocket icon-medium-effect icon-effect-1"></i>
+                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool37.png"/> 
                     </div>
                     <div class="service-content">
-                        <h4>Fast & Light Theme</h4>
+                        <h4>Yerinde Montaj</h4>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-2"></div>
         </div>
         <!-- Divider -->
         <div class="hr1 margin-top"></div>
         <!-- Start Recent Projects Carousel -->
+        
+        <?php $kSayisi = count($model[1]);
+        for($k=0;$k<$kSayisi;$k++){
+        ?>
         <div class="recent-projects">
-            <h4 class="title"><span>Ürünlerimiz</span></h4>
+            <h4 class="title"><span><?php echo $model[1][$k]["ad"]?></span></h4>
             <div class="projects-carousel touch-carousel">
+                <?php $uSayisi = count($model[0]);
+                for($u=0;$u<6;$u++){
+                    for($a=0;$a<$uSayisi;$a++){
+                        if($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]){
+                    
+                ?>
                 <div class="portfolio-item item">
                     <div class="portfolio-border">
                         <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
+                        <a class="lightbox" title="<?php echo $model[0][$a]["urun_aciklama"];?>" href="<?php  echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>">
                                 <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
+                                <img alt="" src="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>" />
                             </a>
                         </div>
                         <div class="portfolio-details">
                             <a href="#">
-                                <h4>Vestiyer V07 Sürgülü Kapak</h4>
+                                <h4><?php echo $model[0][$a]["urun_aciklama"];?></h4>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor asdaaaaaa</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="This is an image title" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                            <a class="lightbox" title="Lorem Ipsum Dolor" href="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Modalife-Vestiyer-Modelleri3.jpg">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/Portfolio-1/images.jpg" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4>Lorem Ipsum Dolor</h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                <?php }} }?>
             </div>
         </div>
+        <?php }?>
+        
         <!-- End Recent Projects Carousel -->
         <div class="hr1 margin-60"></div>
-    </div>
-</div>
-<!-- End Content -->
+    

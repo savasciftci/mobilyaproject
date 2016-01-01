@@ -331,10 +331,11 @@ $(document).on('click', '#katduzenle', function (e) {
     });
 });
 
-var image_holder = $("#image-holder");
 window.onload = function () {
     var fileInput = document.getElementById('fileInput');
     var fileDisplayArea = document.getElementById('fileDisplayArea');
+       var resimGuncelle = document.getElementById('resimGuncelle');
+    var dosyaAlani = document.getElementById('dosyaAlani');
 
     fileInput.addEventListener('change', function (e) {
         var file = fileInput.files[0];
@@ -354,14 +355,8 @@ window.onload = function () {
             fileDisplayArea.innerHTML = "Dosya Yüklenemedi!!"
         }
     });
-}
-
-var image_holder = $("#image-holder");
-window.onload = function () {
-    var resimGuncelle = document.getElementById('resimGuncelle');
-    var dosyaAlani = document.getElementById('dosyaAlani');
-
-    resimGuncelle.addEventListener('change', function (e) {
+    
+        resimGuncelle.addEventListener('change', function (e) {
         var file = resimGuncelle.files[0];
         var imageType = /image.*/;
         if (file.type.match(imageType)) {
@@ -380,3 +375,4 @@ window.onload = function () {
         }
     });
 }
+

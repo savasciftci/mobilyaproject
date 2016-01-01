@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    // active class'ını alacak link'in id'si
+    activePage = "hakkimizda";
+</script>
+
 <div class="container">   
     <!-- Start Services Icons -->
     <div class="row">
@@ -6,17 +11,13 @@
             <div class="portfolio-item item">
                 <div class="portfolio-border">
                     <div class="portfolio-thumb">                         
-                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" />
-                        <h1>Akzer Mobilya</h1>
-                        <p>asd asll şkaşlk alşsk lşkalşk laşk lşaklş kalşdk lşakdlş kalşd klaşsk  la alşkd
-                            aisdşli asldşld asşl şlasdş laşl şlaş ldad ladi id alidla işd aldai l
-                            adlaslasşdlasdlasdlas</p>
-                        <p>asd asll şkaşlk alşsk lşkalşk laşk lşaklş kalşdk lşakdlş kalşd klaşsk  la alşkd
-                            aisdşli asldşld asşl şlasdş laşl şlaş ldad ladi id alidla işd aldai l
-                            adlaslasşdlasdlasdlas</p>
-                        <p>asd asll şkaşlk alşsk lşkalşk laşk lşaklş kalşdk lşakdlş kalşd klaşsk  la alşkd
-                            aisdşli asldşld asşl şlasdş laşl şlaş ldad ladi id alidla işd aldai l
-                            adlaslasşdlasdlasdlas</p>
+                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/hakkimizda.png" />
+                        <h2>Akzer Mobilya</h2>
+                        sadadasdaa asd asdadadada d asd ad a ad asd s
+                        sadadasdaa asd asdadadada d asd ad a ad asd s sadadasdaa asd asdadadada d asd ad a ad asd s
+                        sadadasdaa asd asdadadada d asd ad a ad asd ssadadasdaa asd asdadadada d asd ad a ad asd ssadadasdaa asd asdadadada d asd ad a ad asd s
+                        sadadasdaa asd asdadadada d asd ad a ad asd s<p></p>
+                        sadadasdaa asd asdadadada d asd ad a ad asd s
                     </div>
                 </div>
             </div>

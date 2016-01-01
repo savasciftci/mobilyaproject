@@ -1,4 +1,7 @@
-
+<script type="text/javascript">
+    // active class'ını alacak link'in id'si
+    activePage = "iletisim";
+</script>
 <div class="container">
 
     <!--<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"></div>--> 
@@ -9,25 +12,19 @@
                     <h2>Akzer Mobilya</h2>
                     <hr>
                     <img src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" />
-                    <!--                    <div id="bilgi">
-                                            <B><i>Adres:</i></B>
-                                          <i>asdasd ad asd asd ad ad ad ad aads asdasd ad asd asd ad ad ad ad aadsasdasd ad asd asd ad ad ad ad aads </i>
-                                        <p><i class="fa fa-phone"> Tel-1: 0(352)231 21  12</i></p>
-                                        <p><i class="fa fa-phone"> Tel-2: 0(352)231 21  12</i></p>
-                                        <p><i class="fa fa-mobile"> Gsm: 0(533) 321 13 21 </i></p>
-                                        <p><i class="fa fa-envelope"> Mail: akzer_mobilya@info.com </i></p>
-                                        </div>-->
+                
                     <div class="solalt">
-                        <h4 class="title" style="border-color: rgba(85, 85, 85, 0.247059)"></h4>
+                        <h3 class="title" style="border-color: rgba(85, 85, 85, 0.247059)"></h3>
                         <div class="adress">
-                            <p><B>Adres</B>:sadsa asdasdasd ad</p>
+                            <p></p><p></p>
+                            <b>Adres</b>:sadsa asdasdasd ad 
                             <div>
                               <span class="fa fa-phone"></span>
-                                 Tel: 0(352)231 21  12
+                              Tel: 0(352)233 21  12
                             </div>
                             <div>
                               <span class="fa fa-phone"></span>
-                                 Gsm 0(352)231 21  12
+                                 Gsm 0(352)233 21  12
                             </div>
                             <div>
                                 <a >

@@ -18,10 +18,8 @@ class Admin_Ajax extends Controller {
             $sonuc = array();
             //model bağlantısı
             $Panel_Model = $this->load->model("Panel_Model");
-
             $form->post("tip", true);
             $tip = $form->values['tip'];
-
             Switch ($tip) {
                 case "profilDuzenle":
                     $form->post("ad", true);
@@ -224,8 +222,8 @@ class Admin_Ajax extends Controller {
                                         $image->file_name_body_pre = 'mobilya_';
                                         $image->image_resize = true;
                                         $image->image_ratio_crop = true;
-                                        $image->image_x = 400;
-                                        $image->image_y = 400;
+                                        $image->image_x = 900;
+                                        $image->image_y = 900;
                                         $image->Process("upload/urunler");
                                         if ($image->processed) {
                                             if ($form->submit()) {
@@ -251,20 +249,6 @@ class Admin_Ajax extends Controller {
                                 } else {
                                     $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                 }
-                                /*
-                                  if ($form->submit()) {
-                                  $dataUrun = array(
-                                  'urun_aciklama' => $aciklama,
-                                  'urun_fiyat' => $fiyat,
-                                  'urun_kategori' => $kategoriID
-                                  );
-                                  }
-                                  $result = $Panel_Model->urunupdate($dataUrun, $id);
-                                  if ($result) {
-                                  $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
-                                  } else {
-                                  $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
-                                  } */
                             } else {
                                 $sonuc["hata"] = "Lütfen bir kategori seçiniz.";
                             }
@@ -306,8 +290,8 @@ class Admin_Ajax extends Controller {
                                         $image->file_name_body_pre = 'mobilya_';
                                         $image->image_resize = true;
                                         $image->image_ratio_crop = true;
-                                        $image->image_x = 400;
-                                        $image->image_y = 400;
+                                        $image->image_x = 900;
+                                        $image->image_y = 900;
                                         $image->Process("upload/urunler");
 
                                         if ($image->processed) {

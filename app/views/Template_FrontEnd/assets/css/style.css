@@ -42,10 +42,11 @@
 /*------------------------------------------*/
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 13px;
+    font-size: 19px;
     line-height: 21px;
     font-weight: 300;
     color: #666;
+   
    
 }
 strong, b {
@@ -65,6 +66,9 @@ strong, b {
 img {
     max-width: 100%;
     height: auto;
+     
+    
+/*    margin-top: 50px;*/
 }
 
 ul, ol {
@@ -107,12 +111,14 @@ h1 {
     font-size: 24px;
     line-height: 30px;
     margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 h2 {
     font-size: 22px;
     line-height: 28px;
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 h3 {
@@ -121,7 +127,7 @@ h3 {
 }
 
 h4 {
-    font-size: 16px;
+    font-size: 22px;
     line-height: 22px;
 }
 
@@ -137,10 +143,11 @@ h6 {
 
 p {
     color: #666;
-    font-size: 13px;
+    font-size: 15px;
     font-family: 'Open Sans', sans-serif;
     line-height: 22px;
     margin: 0;
+    padding:5px
 }
 
 p strong {
@@ -400,6 +407,7 @@ header {
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
+    border-bottom: 1px solid #e6e6e6;
 }
 
 .fixed-header {
@@ -611,7 +619,7 @@ ul.social-list li:last-child a i {
     display: block;
     font-size: 16px;
     font-weight: 300;
-    padding: 28px 15px 18px 15px;
+    padding: 28px 15px 28px 15px;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -628,7 +636,7 @@ ul.social-list li:last-child a i {
     margin: 0 -2px 0 -5px;
 }
 
-.navbar-default .navbar-nav > li > a:after {
+/*.navbar-default .navbar-nav > li > a:after {
     position: absolute;
     bottom: 0;
     content: '';
@@ -644,7 +652,7 @@ ul.social-list li:last-child a i {
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
     position: absolute;
-}
+}*/
 
 .navbar-default .navbar-nav > li > a.active:after {
     opacity: 1;
@@ -696,7 +704,6 @@ ul.social-list li:last-child a i {
     -webkit-transition: padding 0.2s ease-in-out;
     -o-transition: padding 0.2s ease-in-out;
 }
-
 
 .dropdown > li:hover > a, .sup-dropdown li:hover > a {
     padding-left: 18px;
@@ -895,7 +902,7 @@ ul.social-list li:last-child a i {
 #main-slide .carousel-control .fa-angle-left, 
 #main-slide .carousel-control .fa-angle-right{
     position: absolute;
-    top: 40%;
+    top: 45%;
     z-index: 5;
     display: inline-block;
 }
@@ -913,7 +920,7 @@ ul.social-list li:last-child a i {
     color: #fff;
     line-height: 36px;
     font-size: 32px;
-    padding: 15px 20px;
+    padding: 1px 10px;
     -moz-transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
     -ms-transition: all 500ms ease;
@@ -2511,6 +2518,7 @@ ul.icons-list li i {
 
 .service-center {
     text-align: center;
+    padding-top: 50px;
 }
 
 .service-icon-left .service-icon {
@@ -3405,7 +3413,7 @@ and (min-width : 551px){
 
 .recent-projects h4.title span {
     padding-bottom: 8px;
-    border-bottom: 1px solid;
+   
 }
 
 .projects-carousel {
@@ -5063,13 +5071,14 @@ ul.footer-nav li a:hover {
     -moz-border-radius: 4px;
     -o-border-radius: 4px;
     border-radius: 4px;
-    background-color: #0099FF;
+    background-color: rgba(0,0,0,.9);
     margin-left: 4px;
+/*    margin-right: 4px;*/
     transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -webkit-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
-    border: 1px solid #ccc;
+    
 }
 
 .touch-carousel .owl-controls .owl-buttons div i, .testimonials-carousel .owl-controls .owl-buttons div i {

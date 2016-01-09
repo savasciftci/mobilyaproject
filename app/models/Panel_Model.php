@@ -34,12 +34,14 @@ class Panel_Model extends Model {
         $sql = "SELECT fwkullaniciAd,fwkullaniciAdres,fwkullaniciSehir,fwkullaniciCinsiyet,fwkullaniciEmail FROM fwkullanicilar WHERE fwkullaniciID=$id";
         return $this->db->select($sql);
     }
-
+ 
     //kategori select formu
     public function kategoriselect() {
         $sql = "SELECT ID,ad,icerik FROM kategori";
         return $this->db->select($sql);
     }
+   
+    
       public function kategoriAnasayfa() {
         $sql = "SELECT ID,ad,anasayfa_durum FROM kategori where anasayfa_durum=1 ";
         return $this->db->select($sql);

@@ -60,7 +60,7 @@
                                         <input type="email" class="form-control email" placeholder="Email" value="<?php echo $model[0]["Mail"]; ?>">
                                     </div>
                                 </div>
-                                <div class="form-group"style="margin-left: 100px">
+                                <div class="form-group"style="margin-left: 80px;margin-right: 30px">
                                         <label for="urunresim">Ürün Resmi</label>
                                         <input id="fileInput" name="fileInput" class="form-control" type="file" />
                                       <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>

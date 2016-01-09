@@ -308,14 +308,14 @@ $(document).on('click', '#katEkle', function (e) {
 $(document).on('click', '#katEklemeIslemi', function (e) {
 
     var ad = $("#ekategoriadi").val();
-    var icerik = $("#ekategoriicerik").val();
-
+    var anasayfadurum = $("#gozuksun option:selected").val();
+    
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"ad": ad, "icerik": icerik, "tip": "katEkle"},
+        data: {"ad": ad, "anasayfadurum": anasayfadurum, "tip": "katEkle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -334,24 +334,23 @@ $(document).on('click', '#katEklemeIslemi', function (e) {
 $(document).on('click', 'a#duzenle', function (e) {
     var id = $(this).attr("value");
     var ad = $(this).parent().parent().find('td:eq(0)').text();
-    var icerik = $(this).parent().parent().find('td:eq(1)').text();
+    var anasayfadurum = $(this).parent().parent().find('td:eq(1)').text();
     $("#sakliID").val(id);
     $("#dkategoriadi").val(ad);
-    $("#dkategoriicerik").val(icerik);
+    $("#dgozuksun").val(anasayfadurum);
     $("#myModal").modal('show');
 });
 $(document).on('click', '#katduzenle', function (e) {
 
     var ad = $("#dkategoriadi").val();
-    var icerik = $("#dkategoriicerik").val();
-
+     var anasayfadurum = $("#dgozuksun option:selected").val();
     var id = $("#sakliID").val();
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"ad": ad, "icerik": icerik, "id": id, "tip": "katduzenle"},
+        data: {"ad": ad, "anasayfadurum": anasayfadurum, "id": id, "tip": "katduzenle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -360,7 +359,7 @@ $(document).on('click', '#katduzenle', function (e) {
                 return false;
             } else {
                 $("tr#kattable_" + id + " td:eq(0)").text(ad);
-                $("tr#kattable_" + id + " td:eq(1)").text(icerik);
+                $("tr#kattable_" + id + " td:eq(1)").text(anasayfadurum);
                 reset();
                 alertify.success(cevap.result);
                 $("#myModal").modal('hide');

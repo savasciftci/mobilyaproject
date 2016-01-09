@@ -71,7 +71,7 @@ class Admin extends Controller {
             foreach ($kategoriliste as $kategorilistee) {
                 $kategori[$a]['ID'] = $kategorilistee['ID'];
                 $kategori[$a]['ad'] = $kategorilistee['ad'];
-                $kategori[$a]['icerik'] = $kategorilistee['icerik'];
+                $kategori[$a]['anasayfa_durum'] = $kategorilistee['anasayfa_durum'];
                 $sayac++;
             }
 

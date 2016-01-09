@@ -18,7 +18,7 @@
                                 <thead>
                                     <tr>
                                         <th>Kategori Adı</th>
-                                        <th>Kategori İçerik</th>
+                                        <th>Anasayfada Gözükme Durumu</th>
                                         <th>İşlemler</th>
                                     </tr>
                                 </thead>
@@ -30,7 +30,7 @@
                                         <tr id="kattable_<?php echo $model[$k]["ID"]; ?>">
 
                                             <td><?php echo $model[$k]["ad"]; ?></td>
-                                            <td><?php echo $model[$k]["icerik"]; ?></td>
+                                            <td><?php echo $model[$k]["anasayfa_durum"]; ?></td>
                                             <td><a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-success" style="cursor:pointer" title="Düzenle"><i  class="fa fa-edit"></i></a>
                                             <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a></td>
                             
@@ -42,7 +42,7 @@
                                 <tfoot>
                                     <tr>
                                         <th>Kategori adı</th>
-                                        <th>Kategori İçerik</th>
+                                        <th>Anasayfada Gözükme Durumu</th>
                                         <th>İşlemler</th>
                                     </tr>
                                 </tfoot>
@@ -69,11 +69,16 @@
                                         <input type="text" class="form-control" id="ekategoriadi" name="ekategoriadi" value="" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Kategori İçerik</label>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="ekategoriicerik" name="ekategoriicerik" value="" required>
-                                    </div>
+                                        <select class="form-control" id="gozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
+                                            <option value="1">Gözüksün</option>
+                                     
+                                            <option  value="2">Gözükmesin</option>
+                                           
+                                        </select>
+                                    </div>    
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -101,11 +106,16 @@
                                         <input type="text" class="form-control" id="dkategoriadi" name="dkategoriadi" value="" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Kategori İçerik</label>
+                                   <div class="form-group">
+                                    <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="dkategoriicerik" name="dkategoriicerik" value="" required>
-                                    </div>
+                                        <select class="form-control" id="dgozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
+                                            <option value="1">Gözüksün</option>
+                                     
+                                            <option  value="2">Gözükmesin</option>
+                                           
+                                        </select>
+                                    </div>    
                                 </div>
                             </div>
                             <div class="modal-footer">

@@ -199,27 +199,29 @@ class Admin_Ajax extends Controller {
 
                 case "katduzenle":
                     $form->post("ad", true);
-                    $form->post("icerik", true);
+                    $form->post("anasayfadurum", true);
                     $form->post("id", true);
                     $ad = $form->values['ad'];
-                    $icerik = $form->values['icerik'];
+                    $anasayfadurum = $form->values['anasayfadurum'];
                     $id = $form->values['id'];
                     if ($ad != "") {
-                        if (icerik != "") {
+                        if ($anasayfadurum != "") {
+                            error_log($anasayfadurum);
                             if ($form->submit()) {
                                 $dataKategori = array(
                                     'ad' => $ad,
-                                    'icerik' => $icerik
+                                    'anasayfa_durum' => $anasayfadurum
                                 );
                             }
                             $result = $Panel_Model->kategoriupdate($dataKategori, $id);
+                            error_log("reslu:".$result);
                             if ($result) {
                                 $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
                             } else {
                                 $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                             }
                         } else {
-                            $sonuc["hata"] = "Lütfen içeriği boş girmeyiniz.";
+                            $sonuc["hata"] = "Anasayfada gözüksünmü belirleyiniz";
                         }
                     } else {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
@@ -227,15 +229,15 @@ class Admin_Ajax extends Controller {
                     break;
                 case "katEkle":
                     $form->post("ad", true);
-                    $form->post("icerik", true);
+                    $form->post("anasayfadurum", true);
                     $ad = $form->values['ad'];
-                    $icerik = $form->values['icerik'];
+                    $anasayfadurum = $form->values['anasayfadurum'];
                     if ($ad != "") {
-                        if (icerik != "") {
+                        if ($anasayfadurum != "") {
                             if ($form->submit()) {
                                 $dataKategori = array(
                                     'ad' => $ad,
-                                    'icerik' => $icerik
+                                    'anasayfa_durum' => $anasayfadurum
                                 );
                             }
                             $result = $Panel_Model->kategoriinsert($dataKategori, $id);
@@ -245,7 +247,7 @@ class Admin_Ajax extends Controller {
                                 $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                             }
                         } else {
-                            $sonuc["hata"] = "Lütfen içeriği boş girmeyiniz.";
+                            $sonuc["hata"] = "Lütfen ekranda gözükmesini seciniz.";
                         }
                     } else {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";

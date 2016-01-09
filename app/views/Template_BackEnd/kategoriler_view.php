@@ -11,7 +11,7 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">Data Table With Full Features</h3>
+                            <h3 class="box-title">Kategoriler</h3>
                         </div><!-- /.box-header -->  <div align="right"> <button type="button" class="btn btn-primary" id="katEkle" title="Yeni Kategori Ekle" style="margin-right:25px; padding: 10px">Kategori EKLE</button></div> 
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-striped">

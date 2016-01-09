@@ -58,6 +58,7 @@ class Admin_Ajax extends Controller {
                                                 if ($image->processed) {
                                                     $id = Session::get("ID");
                                                     if ($form->submit()) {
+                                                        Session::set("presim", $image->file_dst_name);
                                                         $dataProfil = array(
                                                             'fwkullaniciAd' => $ad,
                                                             'fwkullaniciAdres' => $adres,
@@ -163,10 +164,6 @@ class Admin_Ajax extends Controller {
                         $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                     }
                     break;
-                default :
-                    header("Location:" . SITE_URL);
-                    break;
-
                 case "KategoriEkle":
                     $form->post("kategoriAd", true);
                     $form->post("kicerik", true);
@@ -196,7 +193,6 @@ class Admin_Ajax extends Controller {
                         $sonuc["hata"] = "Lütfen iceriği boş girmeyiniz.";
                     }
                     break;
-
                 case "katduzenle":
                     $form->post("ad", true);
                     $form->post("anasayfadurum", true);
@@ -214,7 +210,7 @@ class Admin_Ajax extends Controller {
                                 );
                             }
                             $result = $Panel_Model->kategoriupdate($dataKategori, $id);
-                            error_log("reslu:".$result);
+                            error_log("reslu:" . $result);
                             if ($result) {
                                 $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
                             } else {
@@ -272,9 +268,6 @@ class Admin_Ajax extends Controller {
                     } else {
                         $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                     }
-                    break;
-                default :
-                    header("Location:" . SITE_URL);
                     break;
                 case "urunDuzenle":
                     require "app/otherClasses/class.upload.php";
@@ -341,11 +334,6 @@ class Admin_Ajax extends Controller {
                         $sonuc["hata"] = "Lütfen açıklamayı boş girmeyiniz.";
                     }
                     break;
-                default :
-                    header("Location:" . SITE_URL);
-                    break;
-
-
                 case "urunEkle":
                     require "app/otherClasses/class.upload.php";
                     $form->post("urunaciklama", true);
@@ -358,7 +346,6 @@ class Admin_Ajax extends Controller {
                         if ($urunkategori != "") {
                             if ($urunfiyat != "") {
                                 $realName = $_FILES['file']['name'];
-                                error_log("2.real nem:" . $realName);
                                 if ($realName != "") {
                                     $image = new Upload($_FILES['file']);
                                     if ($image->uploaded) {
@@ -412,6 +399,9 @@ class Admin_Ajax extends Controller {
 
 
 
+                    break;
+                default :
+                    header("Location:" . SITE_URL);
                     break;
             }
             echo json_encode($sonuc);

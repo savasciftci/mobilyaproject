@@ -37,7 +37,7 @@ class Panel_Model extends Model {
  
     //kategori select formu
     public function kategoriselect() {
-        $sql = "SELECT ID,ad,icerik FROM kategori";
+        $sql = "SELECT ID,ad,anasayfa_durum FROM kategori";
         return $this->db->select($sql);
     }
    

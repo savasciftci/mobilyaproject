@@ -34,12 +34,14 @@ class Panel_Model extends Model {
         $sql = "SELECT fwkullaniciAd,fwkullaniciAdres,fwkullaniciSehir,fwkullaniciCinsiyet,fwkullaniciEmail FROM fwkullanicilar WHERE fwkullaniciID=$id";
         return $this->db->select($sql);
     }
-
+ 
     //kategori select formu
     public function kategoriselect() {
         $sql = "SELECT ID,ad,anasayfa_durum FROM kategori";
         return $this->db->select($sql);
     }
+   
+    
       public function kategoriAnasayfa() {
         $sql = "SELECT ID,ad,anasayfa_durum FROM kategori where anasayfa_durum=1 ";
         return $this->db->select($sql);
@@ -68,6 +70,11 @@ class Panel_Model extends Model {
     public function urunselect() {
         $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori,urun_tarih FROM urunler";
         return $this->db->select($sql);
+    }
+    
+     public function urunListeselect($katid) {
+        $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori,urun_tarih FROM urunler where urun_kategori=$katid";
+                error_log("sql->".$sql);return $this->db->select($sql);
     }
     
     public function urunAnasayfa() {

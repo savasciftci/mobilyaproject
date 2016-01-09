@@ -22,25 +22,25 @@
                         <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Ad</label>
+                                    <label for="ad" class="col-sm-2 control-label">Ad</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="ad" placeholder="Ad" required value="<?php echo $model[0]["Ad"]; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Adres</label>
+                                    <label for="adres" class="col-sm-2 control-label">Adres</label>
                                     <div class="col-sm-10">
                                         <textarea class="form-control" rows="3" id="adres" placeholder="Adresinizi Giriniz" style="resize: none"><?php echo $model[0]["Adres"]; ?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Şehir</label>
+                                    <label for="sehir" class="col-sm-2 control-label">Şehir</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="sehir" name="sehir" placeholder="Şehir" value="<?php echo $model[0]["Sehir"]; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Cinsiyet</label>
+                                    <label for="cinsiyet" class="col-sm-2 control-label">Cinsiyet</label>
                                     <div class="col-sm-10">
                                         <select class="form-control"  id="cinsiyet">
                                             <?php if ($model[0]["Cinsiyet"] == 1) { ?>
@@ -55,23 +55,26 @@
                                 </div>
                                  
                                 <div class="form-group">
-                                    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                                    <label for="pemail" class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control email" placeholder="Email" value="<?php echo $model[0]["Mail"]; ?>">
+                                        <input type="email" id="pemail" class="form-control email" placeholder="Email" value="<?php echo $model[0]["Mail"]; ?>">
                                     </div>
                                 </div>
-                                <div class="form-group"style="margin-left: 80px;margin-right: 30px">
-                                        <label for="urunresim">Ürün Resmi</label>
+                                
+                               <div class="form-group">
+                                    <label for="fileInput" class="col-sm-2 control-label">Ürün Resmi</label>
+                                    <div class="col-sm-10">
                                         <input id="fileInput" name="fileInput" class="form-control" type="file" />
-                                      <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>
-                                         </div>
-                            </div>
+                                        <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>   
+                                    </div>
+                                </div>   
                             <div class="box-footer">
                                 <button type="button" id="profilSil" class="btn btn-info pull-right" style="margin-left: 5px">Profil Sil</button>
                                 <button type="button" id="profilDuzenle" class="btn btn-info pull-right" >Profil Duzenle</button>
                             </div><!-- /.box-footer -->
                         </form>
                 </div>
+                  </div>
             </div><!--/.col (right) -->
         </div>   <!-- /.row -->
     </section><!-- /.content -->

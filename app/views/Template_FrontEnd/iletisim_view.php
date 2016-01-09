@@ -17,19 +17,19 @@
                         <h3 class="title" style="border-color: rgba(85, 85, 85, 0.247059)"></h3>
                         <div class="adress">
                             <p></p><p></p>
-                            <b>Adres</b>:sadsa asdasdasd ad 
+                            <b>Adres</b>: <?php echo $model[0]["adres"]; ?> 
                             <div>
                               <span class="fa fa-phone"></span>
-                              Tel: 0(352)233 21  12
+                              İs Tel: <?php echo $model[0]["is_tel"]; ?> 
                             </div>
                             <div>
                               <span class="fa fa-phone"></span>
-                                 Gsm 0(352)233 21  12
+                                 Cep Tel : <?php echo $model[0]["cep_tel"]; ?> 
                             </div>
                             <div>
                                 <a >
                                     <span class="fa fa-envelope"></span>
-                                     Mail: akzer_mobilya@info.com
+                                     Mail: <?php echo $model[0]["site_mail"]; ?> 
                                 </a>
                             </div>
                         </div>

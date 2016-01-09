@@ -60,30 +60,33 @@ class Home extends Controller {
 
         $model = $this->load->model("Panel_Model");
 
-        $kategori = array();
-        $urun = array();
-        $urunler = array();
-        $urunliste = $model->urunselect();
-        $b = 0;
-        foreach ($urunliste as $urunlistee) {
-            $urun[$b]['urun_id'] = $urunlistee['urun_id'];
-            $urun[$b]['urun_resim'] = $urunlistee['urun_resim'];
-            $urun[$b]['urun_aciklama'] = $urunlistee['urun_aciklama'];
-            $urun[$b]['urun_fiyat'] = $urunlistee['urun_fiyat'];
-            $urun[$b]['urun_kategori'] = $urunlistee['urun_kategori'];
-            $b++;
-        }
+        $id = Session::get("urunKatID");
+          $kategori = array();
+          $urun = array();
+          $urunler = array();
+          $urunliste = $model->urunListeselect($id);
+          $b = 0;
+          foreach ($urunliste as $urunlistee) {
+          $urun[$b]['urun_id'] = $urunlistee['urun_id'];
+          $urun[$b]['urun_resim'] = $urunlistee['urun_resim'];
+          $urun[$b]['urun_aciklama'] = $urunlistee['urun_aciklama'];
+          $urun[$b]['urun_fiyat'] = $urunlistee['urun_fiyat'];
+          $urun[$b]['urun_kategori'] = $urunlistee['urun_kategori'];
+          $b++;
+          }
 
-        //kategorileri listeleme
-        $kategoriliste = $model->kategoriselect();
-        $a = 0;
-        foreach ($kategoriliste as $kategorilistee) {
-            $kategori[$a]['ID'] = $kategorilistee['ID'];
-            $kategori[$a]['ad'] = $kategorilistee['ad'];
-            $a++;
-        }
-        $urunler[0] = $urun;
-        $urunler[1] = $kategori;
+          //kategorileri listeleme
+          $kategoriliste = $model->kategoriselect();
+          $a = 0;
+          foreach ($kategoriliste as $kategorilistee) {
+          $kategori[$a]['ID'] = $kategorilistee['ID'];
+          $kategori[$a]['ad'] = $kategorilistee['ad'];
+          $a++;
+          }
+          $urunler[0] = $urun;
+          $urunler[1] = $kategori;
+          $urunler[2] = $id;
+      
         $this->load->view("Template_FrontEnd/header", $kategori);
         $this->load->view("Template_FrontEnd/urunler", $urunler);
         $this->load->view("Template_FrontEnd/footer");
@@ -96,25 +99,17 @@ class Home extends Controller {
     }
 
     public function iletisim() {
-        $this->load->view("Template_FrontEnd/header", $this->header());
-        $this->load->view("Template_FrontEnd/iletisim");
-        $this->load->view("Template_FrontEnd/footer");
-    }
-
-    public function header() {
         $model = $this->load->model("Panel_Model");
-        $katList = array();
-        $kategori = array();
-        $urun = array();
 
-        $urunliste = $model->urunselect();
+        $kategori = array();
+        $ayar = array();
+        $ayarlar = $model->ayarselect(1);
         $b = 0;
-        foreach ($urunliste as $urunlistee) {
-            $urun[$b]['urun_id'] = $urunlistee['urun_id'];
-            $urun[$b]['urun_resim'] = $urunlistee['urun_resim'];
-            $urun[$b]['urun_aciklama'] = $urunlistee['urun_aciklama'];
-            $urun[$b]['urun_fiyat'] = $urunlistee['urun_fiyat'];
-            $urun[$b]['urun_kategori'] = $urunlistee['urun_kategori'];
+        foreach ($ayarlar as $ayarlarr) {
+            $ayar[$b]['is_tel'] = $ayarlarr['is_tel'];
+            $ayar[$b]['cep_tel'] = $ayarlarr['cep_tel'];
+            $ayar[$b]['site_mail'] = $ayarlarr['site_mail'];
+            $ayar[$b]['adres'] = $ayarlarr['adres'];
             $b++;
         }
 
@@ -127,9 +122,25 @@ class Home extends Controller {
             $a++;
         }
 
-        $katList[0] = $urun;
-        $katList[1] = $kategori;
-        return $katList;
+        $this->load->view("Template_FrontEnd/header", $kategori);
+        $this->load->view("Template_FrontEnd/iletisim", $ayar);
+        $this->load->view("Template_FrontEnd/footer");
+    }
+
+    public function header() {
+        $model = $this->load->model("Panel_Model");
+        $kategori = array();
+
+        //kategorileri listeleme
+        $kategoriliste = $model->kategoriselect();
+        $a = 0;
+        foreach ($kategoriliste as $kategorilistee) {
+            $kategori[$a]['ID'] = $kategorilistee['ID'];
+            $kategori[$a]['ad'] = $kategorilistee['ad'];
+            $a++;
+        }
+
+        return $kategori;
     }
 
 }

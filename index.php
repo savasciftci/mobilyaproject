@@ -1,8 +1,9 @@
 <?php
 
 //git
+//
+//Session::destroy();
 //oturum başlatma
-
 ob_start();
 Session::init();
 //hata mesajlarını gösterme

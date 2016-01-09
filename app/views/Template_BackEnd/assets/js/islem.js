@@ -24,7 +24,6 @@ $(document).on("click", "button#profilDuzenle", function (e) {
         contentType: false,
         enctype: 'multipart/form-data',
         processData: false,
-        
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -45,13 +44,13 @@ $(document).on("click", "button#ayarDuzenle", function (e) {
     var cep = $("#cep").val();
     var mail = $("#mail").val();
     var adres = $("#adres").val();
-    
+
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"baslik": baslik,"aciklama":aciklama,"is":is,"cep":cep,"mail":mail, "adres": adres, "tip": "ayarDuzenle"},
+        data: {"baslik": baslik, "aciklama": aciklama, "is": is, "cep": cep, "mail": mail, "adres": adres, "tip": "ayarDuzenle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -372,7 +371,7 @@ $(document).on('click', '#katduzenle', function (e) {
 window.onload = function () {
     var fileInput = document.getElementById('fileInput');
     var fileDisplayArea = document.getElementById('fileDisplayArea');
-       var resimGuncelle = document.getElementById('resimGuncelle');
+    var resimGuncelle = document.getElementById('resimGuncelle');
     var dosyaAlani = document.getElementById('dosyaAlani');
 
     fileInput.addEventListener('change', function (e) {
@@ -393,8 +392,8 @@ window.onload = function () {
             fileDisplayArea.innerHTML = "Dosya Yüklenemedi!!"
         }
     });
-    
-        resimGuncelle.addEventListener('change', function (e) {
+
+    resimGuncelle.addEventListener('change', function (e) {
         var file = resimGuncelle.files[0];
         var imageType = /image.*/;
         if (file.type.match(imageType)) {

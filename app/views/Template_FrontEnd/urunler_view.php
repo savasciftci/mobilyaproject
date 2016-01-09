@@ -3,7 +3,6 @@
     activePage = "urunlerimiz";
 </script>
 <div class="container">
-    <?php error_log("katsId:" . $_POST["id"]); ?>
     <!-- Start Services Icons -->
     <div class="row">
         <!-- Divider -->
@@ -11,19 +10,18 @@
         <!-- Start Recent Projects Carousel -->
         <div class="recent-projects">
             <h4 class="title"><span><?php
-                    $urunMiktar = count($model[0]);
-                    $katId = 36;
+                    $urunMiktar = count($model[1]);
+                    $katId = $model[2];
                     for ($u = 0; $u < $urunMiktar; $u++) {
-                        if ($model[0][$u]["urun_kategori"] == $katId) {
-                            echo "Kategori Adı:";
-                            echo $model[1][$katId]["ad"];
+                        if ($model[0][0]["urun_kategori"] == $model[1][$u]["ID"]) {
+                            
+                            echo $model[1][$u]["ad"];
                             break;
                         }
                     }
                     ?></span></h4>
             <?php
             for ($u = 0; $u < $urunMiktar; $u++) {
-                if ($model[0][$u]["urun_kategori"] == $katId) {
                     ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="portfolio-item item">
@@ -43,7 +41,7 @@
                         </div>
                     </div>
                     <?php
-                }
+                
             }
             ?>
 

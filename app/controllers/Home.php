@@ -61,12 +61,10 @@ class Home extends Controller {
         $model = $this->load->model("Panel_Model");
 
         $id = Session::get("urunKatID");
-        error_log("Gelen ID--->" . $id);
-        /*
           $kategori = array();
           $urun = array();
           $urunler = array();
-          $urunliste = $model->urunselect();
+          $urunliste = $model->urunListeselect($id);
           $b = 0;
           foreach ($urunliste as $urunlistee) {
           $urun[$b]['urun_id'] = $urunlistee['urun_id'];
@@ -87,7 +85,8 @@ class Home extends Controller {
           }
           $urunler[0] = $urun;
           $urunler[1] = $kategori;
-         * */
+          $urunler[2] = $id;
+      
         $this->load->view("Template_FrontEnd/header", $kategori);
         $this->load->view("Template_FrontEnd/urunler", $urunler);
         $this->load->view("Template_FrontEnd/footer");

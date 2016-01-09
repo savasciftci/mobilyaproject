@@ -72,6 +72,11 @@ class Panel_Model extends Model {
         return $this->db->select($sql);
     }
     
+     public function urunListeselect($katid) {
+        $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori,urun_tarih FROM urunler where urun_kategori=$katid";
+                error_log("sql->".$sql);return $this->db->select($sql);
+    }
+    
     public function urunAnasayfa() {
         $sql = "SELECT urun_id,urun_resim,urun_aciklama,urun_fiyat,urun_kategori FROM urunler order by urun_id desc limit 0,6";
         return $this->db->select($sql);

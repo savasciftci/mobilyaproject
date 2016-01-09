@@ -23,49 +23,44 @@
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Site Başlık</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="genelayarbaslik" placeholder="Site Başlığı" value="" required></input>
+                                        <input type="text" class="form-control" id="baslik" name="genelayarbaslik" placeholder="Site Başlığı" value="<?php echo $model[0]["site_baslik"]; ?>" ></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Site Açıklaması</label>
                                     <div class="col-sm-9">
-                                        <textarea class="form-control" name="genelayaracıklama" placeholder="Site Açıklaması" value="" style="resize: none" required></textarea>
+                                        <input type="text" class="form-control" id="aciklama" name="genelayarbaslik" placeholder="Site Başlığı" value="<?php echo $model[0]["site_aciklama"]; ?>" ></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">İş Tel</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="genelayartel" placeholder="Telefon" value="" required></input>
+                                        <input type="text" class="form-control"id="is" name="genelayartel" placeholder="Telefon" value="<?php echo $model[0]["is_tel"]; ?>" ></input>
                                     </div>
                                 </div>
                                   <div class="form-group">
                                     <label class="col-sm-3 control-label">Cep Tel</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="genelayarceptel" placeholder="Cep Telefonu" value="" required></input>
+                                        <input type="text" class="form-control"id="cep" name="genelayarceptel" placeholder="Cep Telefonu" value="<?php echo $model[0]["cep_tel"]; ?>" ></input>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">E-Posta</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="genelayarmail" placeholder="E-Posta" value="" required></input>
+                                        <input type="text" class="form-control"id="mail" name="genelayarmail" placeholder="E-Posta" value="<?php echo $model[0]["site_mail"]; ?>" ></input>
                                     </div>
                                 </div>
                                   <div class="form-group">
                                     <label class="col-sm-3  control-label"> Adres</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="genelayaradres" class="form-control"  placeholder="Adres" value="" required></input>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Şifre</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control"  name="genelayarsifre" placeholder="Şifre" value="" required>
+                                        <input type="text" name="genelayaradres" class="form-control" id="adres" placeholder="Adres" value="<?php echo $model[0]["adres"]; ?>" ></input>
                                     </div>
                                 </div>
                               
+                              
                             </div>
                             <div class="box-footer">
-                                <button type="button" id="profilDuzenle" class="btn btn-info pull-right" >Ayarları Değiştir</button>
+                                <button type="button" id="ayarDuzenle" class="btn btn-info pull-right" >Ayarları Değiştir</button>
                             </div><!-- /.box-footer -->
                         </form>
                 </div>

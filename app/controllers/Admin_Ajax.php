@@ -22,6 +22,7 @@ class Admin_Ajax extends Controller {
             $tip = $form->values['tip'];
             Switch ($tip) {
                 case "profilDuzenle":
+                    require "app/otherClasses/class.upload.php";
                     $form->post("ad", true);
                     $form->post("adres", true);
                     $form->post("sehir", true);
@@ -37,21 +38,49 @@ class Admin_Ajax extends Controller {
                             if ($sehir != "") {
                                 if ($cinsiyetval != 0) {
                                     if ($email != "") {
-                                        $id = Session::get("ID");
-                                        if ($form->submit()) {
-                                            $dataProfil = array(
-                                                'fwkullaniciAd' => $ad,
-                                                'fwkullaniciAdres' => $adres,
-                                                'fwkullaniciSehir' => $sehir,
-                                                'fwkullaniciCinsiyet' => $cinsiyetval,
-                                                'fwkullaniciEmail' => $email
-                                            );
-                                        }
-                                        $result = $Panel_Model->profilupdate($dataProfil, $id);
-                                        if ($result) {
-                                            $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                        $realName = $_FILES['file']['name'];
+                                        if ($realName != "") {
+                                            $image = new Upload($_FILES['file']);
+                                            if ($image->uploaded) {
+                                                // sadece resim formatları yüklensin
+                                                $image->allowed = array('image/*');
+                                                $image->image_min_height = 250;
+                                                $image->image_min_width = 250;
+                                                $image->image_max_height = 2000;
+                                                $image->image_max_width = 2000;
+                                                $image->file_new_name_body = time();
+                                                $image->file_name_body_pre = 'profil_';
+                                                $image->image_resize = true;
+                                                $image->image_ratio_crop = true;
+                                                $image->image_x = 900;
+                                                $image->image_y = 900;
+                                                $image->Process("upload/profil");
+                                                if ($image->processed) {
+                                                    $id = Session::get("ID");
+                                                    if ($form->submit()) {
+                                                        $dataProfil = array(
+                                                            'fwkullaniciAd' => $ad,
+                                                            'fwkullaniciAdres' => $adres,
+                                                            'fwkullaniciSehir' => $sehir,
+                                                            'fwkullaniciCinsiyet' => $cinsiyetval,
+                                                            'fwkullaniciEmail' => $email,
+                                                            'fwkullanici_Resim' => $image->file_dst_name
+                                                        );
+                                                    }
+                                                    $result = $Panel_Model->profilupdate($dataProfil, $id);
+                                                    if ($result) {
+                                                        $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                                    } else {
+                                                        $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                                    }
+                                                } else {
+                                                    $sonuc["hata"] = $image->error;
+                                                }
+                                            } else {
+                                                $sonuc["hata"] = $image->error;
+                                            }
                                         } else {
-                                            $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                            $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                         }
                                     } else {
                                         $sonuc["hata"] = "Lütfen maili boş girmeyiniz.";
@@ -67,6 +96,61 @@ class Admin_Ajax extends Controller {
                         }
                     } else {
                         $sonuc["hata"] = "Lütfen adınızı boş girmeyiniz.";
+                    }
+                    break;
+                case "ayarDuzenle":
+                    $form->post("baslik", true);
+                    $form->post("aciklama", true);
+                    $form->post("is", true);
+                    $form->post("cep", true);
+                    $form->post("mail", true);
+                    $form->post("adres", true);
+                    $baslik = $form->values['baslik'];
+                    $aciklama = $form->values['aciklama'];
+                    $is = $form->values['is'];
+                    $cep = $form->values['cep'];
+                    $mail = $form->values['mail'];
+                    $adres = $form->values['adres'];
+                    if ($baslik != "") {
+                        if ($aciklama != "") {
+                            if ($is != "") {
+                                if ($cep != "") {
+                                    if ($mail != "") {
+                                        if ($adres != "") {
+                                            $id = 1;
+                                            if ($form->submit()) {
+                                                $dataAyar = array(
+                                                    'site_baslik' => $baslik,
+                                                    'site_aciklama' => $aciklama,
+                                                    'is_tel' => $is,
+                                                    'cep_tel' => $cep,
+                                                    'site_mail' => $mail,
+                                                    'adres' => $adres
+                                                );
+                                            }
+                                            $result = $Panel_Model->ayarupdate($dataAyar, $id);
+                                            if ($result) {
+                                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                            } else {
+                                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                            }
+                                        } else {
+                                            $sonuc["hata"] = "Lütfen adresi boş bırakmayınız.";
+                                        }
+                                    } else {
+                                        $sonuc["hata"] = "Lütfen maili boş girmeyiniz.";
+                                    }
+                                } else {
+                                    $sonuc["hata"] = "Lütfen cep telefonu boş bırakmayınız.";
+                                }
+                            } else {
+                                $sonuc["hata"] = "Lütfen is telefonu boş bırakmayınız.";
+                            }
+                        } else {
+                            $sonuc["hata"] = "Lütfen acıklamayı boş bırakmayınız.";
+                        }
+                    } else {
+                        $sonuc["hata"] = "Lütfen basliği boş girmeyiniz.";
                     }
                     break;
                 case "profilSil":
@@ -114,16 +198,12 @@ class Admin_Ajax extends Controller {
                     break;
 
                 case "katduzenle":
-                    error_log("11111111");
                     $form->post("ad", true);
                     $form->post("icerik", true);
                     $form->post("id", true);
                     $ad = $form->values['ad'];
                     $icerik = $form->values['icerik'];
                     $id = $form->values['id'];
-                    error_log($ad);
-                    error_log($icerik);
-                    error_log($id);
                     if ($ad != "") {
                         if (icerik != "") {
                             if ($form->submit()) {
@@ -195,7 +275,7 @@ class Admin_Ajax extends Controller {
                     header("Location:" . SITE_URL);
                     break;
                 case "urunDuzenle":
-                      require "app/otherClasses/class.upload.php";
+                    require "app/otherClasses/class.upload.php";
                     $form->post("aciklama", true);
                     $form->post("fiyat", true);
                     $form->post("kategoriID", true);
@@ -276,7 +356,7 @@ class Admin_Ajax extends Controller {
                         if ($urunkategori != "") {
                             if ($urunfiyat != "") {
                                 $realName = $_FILES['file']['name'];
-                                error_log("2.real nem:".$realName);
+                                error_log("2.real nem:" . $realName);
                                 if ($realName != "") {
                                     $image = new Upload($_FILES['file']);
                                     if ($image->uploaded) {

@@ -1,17 +1,30 @@
 $(document).on("click", "button#profilDuzenle", function (e) {
+    var formData = new FormData();
     var ad = $("#ad").val();
     var adres = $("#adres").val();
     var sehir = $("input[name=sehir]").val();
     var cinsiyettext = $("#cinsiyet option:selected").text();
     var cinsiyetval = $("#cinsiyet option:selected").val();
     var email = $(".email").val();
+    var fileInput = $("#fileInput").val();
+    formData.append('ad', ad);
+    formData.append('adres', adres);
+    formData.append('sehir', sehir);
+    formData.append('cinsiyetval', cinsiyetval);
+    formData.append('email', email);
+    formData.append('file', $("#fileInput")[0].files[0]);
+    formData.append('tip', "profilDuzenle")
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"ad": ad, "adres": adres, "sehir": sehir,
-            "cinsiyetval": cinsiyetval, "email": email, "tip": "profilDuzenle"},
+        data: formData,
+        async: false,
+        contentType: false,
+        enctype: 'multipart/form-data',
+        processData: false,
+        
         success: function (cevap) {
             if (cevap.hata) {
                 reset();
@@ -25,7 +38,33 @@ $(document).on("click", "button#profilDuzenle", function (e) {
         }
     });
 });
-
+$(document).on("click", "button#ayarDuzenle", function (e) {
+    var baslik = $("#baslik").val();
+    var aciklama = $("#aciklama").val();
+    var is = $("#is").val();
+    var cep = $("#cep").val();
+    var mail = $("#mail").val();
+    var adres = $("#adres").val();
+    
+    $.ajax({
+        type: "post",
+        url: SITE_URL + "/Admin_Ajax",
+        cache: false,
+        dataType: "json",
+        data: {"baslik": baslik,"aciklama":aciklama,"is":is,"cep":cep,"mail":mail, "adres": adres, "tip": "ayarDuzenle"},
+        success: function (cevap) {
+            if (cevap.hata) {
+                reset();
+                alertify.alert(cevap.hata);
+                return false;
+            } else {
+                reset();
+                alertify.success(cevap.result);
+                return false;
+            }
+        }
+    });
+});
 
 $(document).on('click', 'a#usil', function (e) {
     var id = $(this).attr("value");

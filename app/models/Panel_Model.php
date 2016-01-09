@@ -25,7 +25,7 @@ class Panel_Model extends Model {
 
     //login select formu
     public function loginselect($email, $sifre) {
-        $sql = "SELECT fwkullaniciID,fwkullaniciAd,fwkullaniciEmail FROM fwkullanicilar WHERE fwkullaniciEmail='$email' AND fwkullaniciSifre='$sifre'";
+        $sql = "SELECT fwkullaniciID,fwkullaniciAd,fwkullaniciEmail,fwkullanici_Resim FROM fwkullanicilar WHERE fwkullaniciEmail='$email' AND fwkullaniciSifre='$sifre'";
         return $this->db->select($sql);
     }
 
@@ -45,12 +45,12 @@ class Panel_Model extends Model {
         return $this->db->select($sql);
     }
 
-    public function profilupdate($data, $gelenid) {
-        return ($this->db->update("fwkullanicilar", $data, "fwkullaniciID=$gelenid"));
+    public function profilupdate($dataProfil, $gelenid) {
+        return ($this->db->update("fwkullanicilar", $dataProfil, "fwkullaniciID=$gelenid"));
     }
 
-    public function profildelete($gelenid) {
-        return ($this->db->delete("fwkullanicilar", "fwkullaniciID=$gelenid"));
+    public function profildelete($id) {
+        return ($this->db->delete("fwkullanicilar", "fwkullaniciID=$id"));
     }
 
     public function logininsert($data) {
@@ -88,7 +88,17 @@ class Panel_Model extends Model {
     public function kategoridelete($gelenid) {
         return ($this->db->delete("kategori", "ID=$gelenid"));
     }
-
+    
+    //login select formu
+    public function ayarselect($id) {
+        $sql = "SELECT site_baslik,site_aciklama,is_tel,cep_tel,site_mail,adres FROM ayar WHERE id=1";
+        return $this->db->select($sql);
+    }
+    
+    public function ayarupdate($dataAyar, $id) {
+        return ($this->db->update("ayar", $dataAyar, "id=$id"));
+    }
+    
 }
 
 ?>

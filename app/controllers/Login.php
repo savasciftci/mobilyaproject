@@ -31,7 +31,9 @@ class Login extends Controller {
                                 $ID = $result[0]["fwkullaniciID"];
                                 $kadi = $result[0]["fwkullaniciAd"];
                                 $email = $result[0]["fwkullaniciEmail"];
+                                $profilresim = $result[0]["fwkullanici_Resim"];
                                 Session::set("email", $email);
+                                Session::set("presim", $profilresim);
                                 Session::set("kadi", $kadi);
                                 Session::set("ID", $ID);
                                 header("Location:" . SITE_URL . "/Admin");
@@ -54,7 +56,7 @@ class Login extends Controller {
     }
     public function logout() {
         session::destroy();
-        $this->load->view("Entry/loginForm");
+         header("Location:" . SITE_URL . "/Login");
     }
 
 }

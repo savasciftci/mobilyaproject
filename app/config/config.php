@@ -8,6 +8,7 @@
 define("SITE_URL", "http://localhost/BadoFramework");
 define("SITE_URLA", "http://localhost/BadoFramework/Admin");
 define("SITE_URLUResim", "http://localhost/BadoFramework/upload/urunler/");
+define("SITE_PROFILRESIM", "http://localhost/BadoFramework/upload/profil/");
 
 //site back end 
 define("SITE_BACK_ASSETS", "http://localhost/BadoFramework/app/views/Template_BackEnd/assets");

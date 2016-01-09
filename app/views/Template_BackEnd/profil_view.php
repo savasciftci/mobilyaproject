@@ -17,6 +17,7 @@
                         <h3 class="box-title">Profil Form</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
+                   
                     <input type="hidden" class="form-control" id="profilid" value="6">
                         <form class="form-horizontal">
                             <div class="box-body">
@@ -52,12 +53,18 @@
                                         </select>
                                     </div>
                                 </div>
+                                 
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                                     <div class="col-sm-10">
                                         <input type="email" class="form-control email" placeholder="Email" value="<?php echo $model[0]["Mail"]; ?>">
                                     </div>
                                 </div>
+                                <div class="form-group"style="margin-left: 100px">
+                                        <label for="urunresim">Ürün Resmi</label>
+                                        <input id="fileInput" name="fileInput" class="form-control" type="file" />
+                                      <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>
+                                         </div>
                             </div>
                             <div class="box-footer">
                                 <button type="button" id="profilSil" class="btn btn-info pull-right" style="margin-left: 5px">Profil Sil</button>

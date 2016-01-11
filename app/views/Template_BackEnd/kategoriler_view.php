@@ -80,9 +80,30 @@
                                 </div>    
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
-                            <button type="button" class="btn btn-primary" id="katEklemeIslemi">Ekle</button>
+                        <div class="modal-body">
+                            <div class="box-body form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Kategori Adı</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="ekategoriadi" name="ekategoriadi" value="" required>
+                                    </div>
+                                </div>
+                                  <div class="form-group">
+                                    <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
+                                    <div class="col-sm-9">
+                                        <select class="form-control" id="gozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
+                                            <option value="1">Gözüksün</option>
+                                     
+                                            <option  value="2">Gözükmesin</option>
+                                           
+                                        </select>
+                                    </div>    
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                                <button type="button" class="btn btn-primary" id="katEklemeIslemi">Ekle</button>
+                            </div>
                         </div>
                     </div>
                 </div>

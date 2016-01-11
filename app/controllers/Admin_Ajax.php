@@ -106,18 +106,21 @@ class Admin_Ajax extends Controller {
                     $form->post("cep", true);
                     $form->post("mail", true);
                     $form->post("adres", true);
+                    $form->post("hakkinda", true);
                     $baslik = $form->values['baslik'];
                     $aciklama = $form->values['aciklama'];
                     $is = $form->values['is'];
                     $cep = $form->values['cep'];
                     $mail = $form->values['mail'];
                     $adres = $form->values['adres'];
+                    $hakkinda = $form->values['hakkinda'];
                     if ($baslik != "") {
                         if ($aciklama != "") {
                             if ($is != "") {
                                 if ($cep != "") {
                                     if ($mail != "") {
                                         if ($adres != "") {
+                                            if ($hakkinda != "") {
                                             $id = 1;
                                             if ($form->submit()) {
                                                 $dataAyar = array(
@@ -126,7 +129,8 @@ class Admin_Ajax extends Controller {
                                                     'is_tel' => $is,
                                                     'cep_tel' => $cep,
                                                     'site_mail' => $mail,
-                                                    'adres' => $adres
+                                                    'adres' => $adres,
+                                                    'hakkinda' => $hakkinda
                                                 );
                                             }
                                             $result = $Panel_Model->ayarupdate($dataAyar, $id);
@@ -135,6 +139,9 @@ class Admin_Ajax extends Controller {
                                             } else {
                                                 $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                                             }
+                                             } else {
+                                            $sonuc["hata"] = "Lütfen hakkında sayfası iceriğini giriniz";
+                                        }
                                         } else {
                                             $sonuc["hata"] = "Lütfen adresi boş bırakmayınız.";
                                         }

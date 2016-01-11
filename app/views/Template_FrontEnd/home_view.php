@@ -1,37 +1,42 @@
 <!-- Start Services Icons -->
 <div class="row">
-    <div id="main-slide" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#main-slide" data-slide-to="0" class="active"></li>
-            <li data-target="#main-slide" data-slide-to="1"></li>
-            <li data-target="#main-slide" data-slide-to="2"></li>
-            <li data-target="#main-slide" data-slide-to="3"></li>
-            <li data-target="#main-slide" data-slide-to="4"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="item active">
-                <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg1.jpg" alt="slider">
-            </div><!--/ Carousel item end -->
-            <div class="item">
-                <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg2.jpg" alt="slider">
-            </div><!--/ Carousel item end -->
-            <div class="item">
-                <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" alt="slider">
+
+    <section id="home">
+        <div id="main-slide" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slide" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slide" data-slide-to="1"></li>
+                <li data-target="#main-slide" data-slide-to="2"></li>
+                <li data-target="#main-slide" data-slide-to="3"></li>
+                <li data-target="#main-slide" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg1.jpg" alt="slider">
+                </div><!--/ Carousel item end -->
+                <div class="item">
+                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg2.jpg" alt="slider">
+                </div><!--/ Carousel item end -->
+                <div class="item">
+                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" alt="slider">
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg4.jpg" alt="slider">
+                </div>
+                <div class="item">
+                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg5.jpg" alt="slider">
+                </div>
             </div>
-            <div class="item">
-                <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg4.jpg" alt="slider">
-            </div>
-            <div class="item">
-                <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg5.jpg" alt="slider">
-            </div>
+            <a class="left carousel-control" href="#main-slide" data-slide="prev">
+                <span><i class="fa fa-angle-left"></i></span>
+            </a>
+            <a class="right carousel-control" href="#main-slide" data-slide="next">
+                <span><i class="fa fa-angle-right"></i></span>
+            </a>
         </div>
-        <a class="left carousel-control" href="#main-slide" data-slide="prev">
-            <span><i class="fa fa-angle-left"></i></span>
-        </a>
-        <a class="right carousel-control" href="#main-slide" data-slide="next">
-            <span><i class="fa fa-angle-right"></i></span>
-        </a>
-    </div>
+    </section>
+
+
     <!-- Start Service Icon 1 -->
     <div class="col-lg-2"></div>
     <!-- Start Service Icon 2 -->
@@ -63,6 +68,7 @@
 <!-- Divider -->
 <div class="hr1 margin-top"></div>
 <!-- Start Recent Projects Carousel -->
+
 <?php
 $kSayisi = count($model[1]);
 for ($k = 0; $k < $kSayisi; $k++) {
@@ -72,7 +78,7 @@ for ($k = 0; $k < $kSayisi; $k++) {
         <div class="projects-carousel touch-carousel">
             <?php
             $uSayisi = count($model[0]);
-            for ($u = 0; $u < 6; $u++) {
+
                 for ($a = 0; $a < $uSayisi; $a++) {
                     if ($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]) {
                         ?>
@@ -94,10 +100,12 @@ for ($k = 0; $k < $kSayisi; $k++) {
                         <?php
                     }
                 }
-            }
+            
             ?>
         </div>
     </div>
 <?php } ?>
+
 <!-- End Recent Projects Carousel -->
 <div class="hr1 margin-60"></div>
+

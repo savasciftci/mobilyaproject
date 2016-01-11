@@ -93,6 +93,7 @@ class Home extends Controller {
     }
 
     public function hakkimizda() {
+        
         $this->load->view("Template_FrontEnd/header", $this->header());
         $this->load->view("Template_FrontEnd/hakkimizda");
         $this->load->view("Template_FrontEnd/footer");

@@ -113,15 +113,23 @@
                                                                         <!-- User Account: style can be found in dropdown.less -->
                                                                         <li class="dropdown user user-menu">
                                                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                                                <?php if(Session::get("presim")) {?>
                                                                                 <img src="<?php echo SITE_PROFILRESIM; ?>/<?php echo Session::get("presim"); ?>" class="user-image" alt="User Image">
+                                                                                <?php }else{?> 
+                                                                                <img src="<?php echo SITE_BACK_ASSETS_DISTIMG; ?>/user2-160x160.jpg" class="user-image" alt="User Image">
+                                                                                <?php }?> 
                                                                                     <span class="hidden-xs"><?php echo Session::get("kadi"); ?></span>
                                                                             </a>
 
                                                                             <ul class="dropdown-menu">
                                                                                 <!-- User image -->
                                                                                 <li class="user-header">
+                                                                                    <?php if(Session::get("presim")) {?>
                                                                                     <img src="<?php echo SITE_PROFILRESIM; ?>/<?php echo Session::get("presim"); ?>" class="img-circle" alt="User Image">
-                                                                                        <p>
+                                                                                    <?php }else{?> 
+                                                                                    <img src="<?php echo SITE_BACK_ASSETS_DISTIMG; ?>/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                                                    <?php }?> 
+                                                                                    <p>
                                                                                             <?php echo Session::get("kadi"); ?> - Web Developer
                                                                                         </p>
                                                                                 </li>

@@ -44,13 +44,14 @@ $(document).on("click", "button#ayarDuzenle", function (e) {
     var cep = $("#cep").val();
     var mail = $("#mail").val();
     var adres = $("#adres").val();
+    var hakkinda = $("#hakkinda").val();
 
     $.ajax({
         type: "post",
         url: SITE_URL + "/Admin_Ajax",
         cache: false,
         dataType: "json",
-        data: {"baslik": baslik, "aciklama": aciklama, "is": is, "cep": cep, "mail": mail, "adres": adres, "tip": "ayarDuzenle"},
+        data: {"baslik": baslik, "aciklama": aciklama, "is": is, "cep": cep, "mail": mail, "adres": adres,"hakkinda":hakkinda, "tip": "ayarDuzenle"},
         success: function (cevap) {
             if (cevap.hata) {
                 reset();

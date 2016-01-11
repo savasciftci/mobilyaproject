@@ -1,7 +1,5 @@
-        <!-- Start Services Icons -->
-        <div class="row">
-            
-            <section id="home">
+<!-- Start Services Icons -->
+<div class="row">
     <div id="main-slide" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#main-slide" data-slide-to="0" class="active"></li>
@@ -34,73 +32,72 @@
             <span><i class="fa fa-angle-right"></i></span>
         </a>
     </div>
-</section>
-        
-            
-            <!-- Start Service Icon 1 -->
-            <div class="col-lg-2"></div>
-            <!-- Start Service Icon 2 -->
-            <div class="col-md-4 col-sm-6 service-box service-center">
-                <div class="service-boxed">
-                    <div class="service-icon" style="margin-top:-25px;">
-                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool36.png" />
-                    </div>
-                    <div class="service-content">
-                        <h4>Yerinde Ölçüm</h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
-                    </div>
-                </div>
+    <!-- Start Service Icon 1 -->
+    <div class="col-lg-2"></div>
+    <!-- Start Service Icon 2 -->
+    <div class="col-md-4 col-sm-6 service-box service-center">
+        <div class="service-boxed">
+            <div class="service-icon" style="margin-top:-25px;">
+                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool36.png" />
             </div>
-            <!-- Start Service Icon 4 -->
-            <div class="col-md-4 col-sm-6 service-box service-center">
-                <div class="service-boxed">
-                    <div class="service-icon" style="margin-top:-25px;">
-                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool37.png"/> 
-                    </div>
-                    <div class="service-content">
-                        <h4>Yerinde Montaj</h4>
-                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <!-- Divider -->
-        <div class="hr1 margin-top"></div>
-        <!-- Start Recent Projects Carousel -->
-        
-        <?php $kSayisi = count($model[1]);
-        for($k=0;$k<$kSayisi;$k++){
-        ?>
-        <div class="recent-projects">
-            <h4 class="title"><span><?php echo $model[1][$k]["ad"]?></span></h4>
-            <div class="projects-carousel touch-carousel">
-                <?php $uSayisi = count($model[0]);
-                for($u=0;$u<6;$u++){
-                    for($a=0;$a<$uSayisi;$a++){
-                        if($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]){
-                    
-                ?>
-                <div class="portfolio-item item">
-                    <div class="portfolio-border">
-                        <div class="portfolio-thumb">
-                        <a class="lightbox" title="<?php echo $model[0][$a]["urun_aciklama"];?>" href="<?php  echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>">
-                                <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                <img alt="" src="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>" />
-                            </a>
-                        </div>
-                        <div class="portfolio-details">
-                            <a href="#">
-                                <h4><?php echo $model[0][$a]["urun_aciklama"];?></h4>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <?php }} }?>
+            <div class="service-content">
+                <h4>Yerinde Ölçüm</h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
             </div>
         </div>
-        <?php }?>
-        
-        <!-- End Recent Projects Carousel -->
-        <div class="hr1 margin-60"></div>
-    
+    </div>
+    <!-- Start Service Icon 4 -->
+    <div class="col-md-4 col-sm-6 service-box service-center">
+        <div class="service-boxed">
+            <div class="service-icon" style="margin-top:-25px;">
+                <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/tool37.png"/> 
+            </div>
+            <div class="service-content">
+                <h4>Yerinde Montaj</h4>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<!-- Divider -->
+<div class="hr1 margin-top"></div>
+<!-- Start Recent Projects Carousel -->
+<?php
+$kSayisi = count($model[1]);
+for ($k = 0; $k < $kSayisi; $k++) {
+    ?>
+    <div class="recent-projects">
+        <h4 class="title"><span><?php echo $model[1][$k]["ad"] ?></span></h4>
+        <div class="projects-carousel touch-carousel">
+            <?php
+            $uSayisi = count($model[0]);
+            for ($u = 0; $u < 6; $u++) {
+                for ($a = 0; $a < $uSayisi; $a++) {
+                    if ($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]) {
+                        ?>
+                        <div class="portfolio-item item">
+                            <div class="portfolio-border">
+                                <div class="portfolio-thumb">
+                                    <a class="lightbox" title="<?php echo $model[0][$a]["urun_aciklama"]; ?>" href="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>">
+                                        <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                                        <img alt="" src="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>" />
+                                    </a>
+                                </div>
+                                <div class="portfolio-details">
+                                    <a href="#">
+                                        <h4><?php echo $model[0][$a]["urun_aciklama"]; ?></h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
+<?php } ?>
+<!-- End Recent Projects Carousel -->
+<div class="hr1 margin-60"></div>

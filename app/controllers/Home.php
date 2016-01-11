@@ -140,6 +140,7 @@ class Home extends Controller {
             $kategori[$a]['ad'] = $kategorilistee['ad'];
             $a++;
         }
+        
 
         return $kategori;
     }

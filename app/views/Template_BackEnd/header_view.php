@@ -139,7 +139,7 @@
                                                                     </ul>
                                                                 </div>
                                                                 <div class="" align="right" >
-                                                                    <a href="<?php echo SITE_URL; ?>"><button type="button" style="margin-top: 8px" class="btn btn-warning">Siteye Git</button></a>
+                                                                    <a target="_blank" href="<?php echo SITE_URL; ?>"><button type="button" style="margin-top: 8px" class="btn btn-warning">Siteye Git</button></a>
                                                                 </div>
                                                             </nav>
                                                         </header>

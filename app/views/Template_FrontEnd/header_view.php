@@ -1,41 +1,29 @@
-
 <!doctype html>
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
 <html lang="en">
     <head>
-
         <!-- Basic -->
     <title>Akzer Mobilya</title>
-
     <!-- Define Charset -->
     <meta charset="utf-8">
-
     <!-- Responsive Metatag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
     <!-- Page Description and Author -->
     <meta name="description" content="Margo - Responsive HTML5 Template">
     <meta name="author" content="iThemesLab">
-
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/bootstrap.min.css" type="text/css" media="screen">
-
         <!-- Font Awesome CSS -->
         <link rel="stylesheet" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/font-awesome.min.css" type="text/css" media="screen" />
-
         <!-- Margo CSS Styles  -->
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/style.css" media="screen"/>
-
         <!-- Responsive CSS Styles  -->
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/responsive.css" media="screen"/>
-
         <!-- Css3 Transitions Styles  -->
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/animate.css" media="screen"/>
-
         <!-- Color CSS Styles  -->
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/colors/blue.css" title="blue" media="screen" />
-
 
 
         <!-- Margo JS  -->
@@ -71,20 +59,16 @@
             }
         </script>
         <script type="text/javascript" src="<?php echo SITE_FRONT_ASSETS_DISTJS; ?>/frontIslem.js"></script>
-
   <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
     </head>
     <body>
         <!-- Container -->
+ <div>       
     <div id="container">
-
         <!-- Start Header -->
         <div class="hidden-header"></div>
         <header class="clearfix">
-
-
             <!-- Start Header ( Logo & Naviagtion ) -->
             <div class="navbar navbar-default navbar-top">
                 <div class="container">
@@ -97,9 +81,6 @@
                         <a class="navbar-brand" href="<?php echo SITE_URL; ?>"><img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/margo.png"></a>
                     </div>
                     <div class="navbar-collapse collapse">
-                        <!-- Stat Search -->
-
-                        <!-- End Search -->
                         <!-- Start Navigation List -->
                         <ul id="mainMenu" class="nav navbar-nav navbar-right">
                             <li>
@@ -123,17 +104,13 @@
                             </li>
                             <li>
                                 <a id="iletisim" href="<?php echo SITE_URL; ?>/home/iletisim">İLETİŞİM</a>
-
                             </li>
-
                         </ul>
                         <!-- End Navigation List -->
                     </div>
                 </div>
             </div>
-            <!-- End Header ( Logo & Naviagtion ) -->
-
         </header>
         <!-- End Header -->
-        <!-- Bu divin kapanışı footer_view.php'nin en basşında -->
+        <!-- Bu divin kapanışı footer_view.php'nin en başında -->
         <div class="container" style='padding-top: 20px;'>

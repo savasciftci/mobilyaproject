@@ -3,7 +3,6 @@
     activePage = "iletisim";
 </script>
 <div class="container">
-
     <!--<div class="col-lg-1 col-md-2 col-sm-12 col-xs-12"></div>--> 
     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <div class="portfolio-item item">
@@ -12,39 +11,33 @@
                     <h2>Akzer Mobilya</h2>
                     <hr>
                     <img src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" />
-                
                     <div class="solalt">
                         <h3 class="title" style="border-color: rgba(85, 85, 85, 0.247059)"></h3>
                         <div class="adress">
                             <p></p><p></p>
                             <b>Adres</b>: <?php echo $model[0]["adres"]; ?> 
                             <div>
-                              <span class="fa fa-phone"></span>
-                              İs Tel: <?php echo $model[0]["is_tel"]; ?> 
+                                <span class="fa fa-phone"></span>
+                                İs Tel: <?php echo $model[0]["is_tel"]; ?> 
                             </div>
                             <div>
-                              <span class="fa fa-phone"></span>
-                                 Cep Tel : <?php echo $model[0]["cep_tel"]; ?> 
+                                <span class="fa fa-phone"></span>
+                                Cep Tel : <?php echo $model[0]["cep_tel"]; ?> 
                             </div>
                             <div>
-                                <a >
+                                <a>
                                     <span class="fa fa-envelope"></span>
-                                     Mail: <?php echo $model[0]["site_mail"]; ?> 
+                                    Mail: <?php echo $model[0]["site_mail"]; ?> 
                                 </a>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
-   
-
     <!DOCTYPE html>
     <html>
-
         <head>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <script
@@ -57,12 +50,9 @@
             </div> 
         </div>
         </head>
-
-        <body>
+        <body>  
         <div id="googleMap" style="width:500px;height:380px;"></div>
-
         </body>
-
     </html>
 </div>
 

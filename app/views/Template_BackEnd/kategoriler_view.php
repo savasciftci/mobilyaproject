@@ -4,7 +4,6 @@
     .modal { text-align: left; }
 </style>
 <link rel="stylesheet" href="<?php echo SITE_BACK_ASSETS_PLUGINS_DATATABLES; ?>/dataTables.bootstrap.css">
-
     <div class="content-wrapper">
         <section class="content">
             <div class="row">
@@ -32,11 +31,11 @@
                                             <td><?php echo $model[$k]["ad"]; ?></td>
                                             <td><?php echo $model[$k]["anasayfa_durum"]; ?></td>
                                             <td><a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-success" style="cursor:pointer" title="Düzenle"><i  class="fa fa-edit"></i></a>
-                                            <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a></td>
-                            
+                                                <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a></td>
 
-                                    </tr>
-                                <?php } ?>
+
+                                        </tr>
+                                    <?php } ?>
 
                                 </tbody>
                                 <tfoot>
@@ -53,43 +52,43 @@
             </div><!-- /.row -->
 
         </section><!-- /.content -->
-        
-                <div id="katEkleModal" class="modal fade">
+
+        <div id="katEkleModal" class="modal fade">
             <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title">Kategori Ekle</h4>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Kategori Ekle</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="box-body form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Kategori Adı</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" id="ekategoriadi" name="ekategoriadi" value="" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" id="gozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
+                                        <option value="1">Gözüksün</option>
+
+                                        <option  value="2">Gözükmesin</option>
+
+                                    </select>
+                                </div>    
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <div class="box-body">
-                                <div class="form-group">
-                                    <label class="col-sm-3 control-label">Kategori Adı</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="ekategoriadi" name="ekategoriadi" value="" required>
-                                    </div>
-                                </div>
-                                  <div class="form-group">
-                                    <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
-                                    <div class="col-sm-9">
-                                        <select class="form-control" id="gozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
-                                            <option value="1">Gözüksün</option>
-                                     
-                                            <option  value="2">Gözükmesin</option>
-                                           
-                                        </select>
-                                    </div>    
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
-                                <button type="button" class="btn btn-primary" id="katEklemeIslemi">Ekle</button>
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Vazgeç</button>
+                            <button type="button" class="btn btn-primary" id="katEklemeIslemi">Ekle</button>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
-        
+
         <div id="myModal" class="modal fade">
             <div class="modal-dialog">
                 <input type="hidden" id="sakliID" value="">
@@ -99,21 +98,21 @@
                             <h4 class="modal-title">Kategori Düzenle</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="box-body">
+                            <div class="box-body form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Kategori Adı</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" id="dkategoriadi" name="dkategoriadi" value="" required>
                                     </div>
                                 </div>
-                                   <div class="form-group">
+                                <div class="form-group">
                                     <label class="col-sm-3 control-label">Anasayfada Gözüksünmü</label>
                                     <div class="col-sm-9">
                                         <select class="form-control" id="dgozuksun" name="urunkategori" placeholder="Kategori Seçiniz" required>
                                             <option value="1">Gözüksün</option>
-                                     
+
                                             <option  value="2">Gözükmesin</option>
-                                           
+
                                         </select>
                                     </div>    
                                 </div>

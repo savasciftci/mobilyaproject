@@ -17,7 +17,6 @@
                         <h3 class="box-title">Ürün Form</h3>
                     </div><!-- /.box-header -->
                     <!-- form start -->
-                    
                         <form class="form-horizontal">
                             <div class="box-body">
                                 <div class="form-group">

@@ -40,12 +40,14 @@
 /*------------------------------------------*/
 /*	     01 - General & Basic Styles
 /*------------------------------------------*/
+
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 19px;
     line-height: 21px;
     font-weight: 300;
     color: #666;
+    padding-bottom: 120px;
    
    
 }
@@ -310,7 +312,6 @@ input[type="submit"] {
 #container {
     background-color: #fff;
 }
-
 .boxed-page {
     position: relative;
     width: 1220px;
@@ -2966,7 +2967,7 @@ ul.icons-list li i {
 .portfolio-item .portfolio-thumb {
     position: relative;
     overflow: hidden;
-/*    padding-bottom: 80px;*/
+    padding-bottom: 120px;
 }
 
 .portfolio-item .portfolio-thumb .thumb-overlay {
@@ -4097,20 +4098,14 @@ ul.post-meta li, ul.post-meta li a {
 .sidebar .tagcloud a:hover {
     color: #fff;
 }
-
-
-
-
-
-
 /*------------------------------------------*/
 /*			 11 - Footer Styles
 /*------------------------------------------*/
 
 footer {
     background-color: #333;
-    padding-top: 5px;
-    padding-bottom: 5px;
+/*    padding-top: 5px;
+    padding-bottom: 5px;*/
     color: #aaa;
    
   
@@ -4319,6 +4314,8 @@ footer a:hover {
 }
 
 .copyright-section p {
+    margin-top: -15px;
+    margin-bottom: -15px;
     font-size: 13px;
     text-transform: uppercase;
   }

@@ -42,8 +42,8 @@
                                         <input type="text" class="form-control" name="kategoriadi" placeholder="Kategori Adı" value="" required>
                                     </div>
                                 </div>
-                            <div class="box-footer">
-                                <button type="button" id="profilDuzenle" class="btn btn-info pull-right" >Kategori Ekle</button>
+                            <div class="box-footer" >
+                                <button type="button" id="profilDuzenle" class="btn btn-info pull-right"  >Kategori Ekle</button>
                             </div><!-- /.box-footer -->
                         </form>
                 </div>

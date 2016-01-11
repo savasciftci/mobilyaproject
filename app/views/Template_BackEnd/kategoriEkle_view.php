@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <label  class="col-sm-2 control-label">Kategori Ad</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="kategoriAd" name="kategoriAd"  value="" >
+                                    <input type="text" class="form-control" id="kategoriAd" name="kategoriAd" value="" >
                                 </div>
                             </div>
                             <div class="form-group">

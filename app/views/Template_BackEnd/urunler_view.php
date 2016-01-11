@@ -1,6 +1,5 @@
 <script src="<?php echo SITE_BACK_ASSETS_JS; ?>/islem.js" type="text/javascript"></script>
 <link rel="stylesheet" href="<?php echo SITE_BACK_ASSETS_PLUGINS_DATATABLES; ?>/dataTables.bootstrap.css">
-
     <div class="content-wrapper">
         <section class="content">
             <div class="row">
@@ -8,7 +7,10 @@
                     <div class="box">
                         <div class="box-header">
                             <h3 class="box-title">Ürünler</h3>
-                        </div><!-- /.box-header --> <div align="right"> <button type="button" class="btn btn-primary" id="urunEkle" title="Yeni Ürün Ekle" style="margin-right:25px; padding: 10px">Ürün EKLE</button></div> 
+                        </div><!-- /.box-header --> 
+                        <div align="right"> 
+                            <button type="button" class="btn btn-primary" id="urunEkle" title="Yeni Ürün Ekle" style="margin-right:25px; padding: 10px">Ürün EKLE</button>
+                        </div> 
                         <div class="box-body">
                             <table id="example1" class="table table-bordered table-hover table-condensed">
                                 <thead>
@@ -40,12 +42,9 @@
                                                 <a id="uduzenle" value="<?php echo $model[0][$k]["urun_id"]; ?>" class="btn btn-sm btn-success" style="cursor:pointer" title="Düzenle"><i  class="fa fa-edit"></i></a>
                                                 <a id="usil" value="<?php echo $model[0][$k]["urun_id"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a>
                                             </td>
-                           
                                     </tr>
                                 <?php } ?>
-
-                                </tbody>
-                               
+                                </tbody>                               
                             </table>
                         </div><!-- /.box-body -->
                     </div><!-- /.box -->
@@ -103,8 +102,7 @@
                         </div>
                     </div>
             </div>
-        </div>
-        
+        </div> 
        <div id="urunModal" class="modal fade">
             <div class="modal-dialog">
                 <input type="hidden" id="sakliID" value="">
@@ -159,16 +157,11 @@
             </div>
         </div>
     </div><!-- /.content-wrapper -->
-
-    <!-- Control Sidebar -->
-
     <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
-
-
-    <!-- jQuery 2.1.4 --> <script src="<?php echo SITE_BACK_ASSETS_PLUGINS; ?>/jQuery/jQuery-2.1.4.min.js"></script>
-
+    <!-- jQuery 2.1.4 --> 
+    <script src="<?php echo SITE_BACK_ASSETS_PLUGINS; ?>/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo SITE_BACK_ASSETS_BOOTSTRAPJS; ?>/bootstrap.min.js"></script>
     <!-- DataTables -->

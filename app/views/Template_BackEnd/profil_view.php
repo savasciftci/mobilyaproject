@@ -21,6 +21,14 @@
                     <input type="hidden" class="form-control" id="profilid" value="6">
                         <form class="form-horizontal">
                             <div class="box-body">
+                                <div class="form-group" >
+                                    <label for="pemail" class="col-sm-2 control-label"></label>
+                                    <div class="col-sm-10">
+                                        <div id="fileDisplayArea" class="col-sm-3">
+                                            <img src="<?php echo SITE_PROFILRESIM; ?>/<?php echo Session::get("presim"); ?>" class="img-circle img-responsive" alt="User Image">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="ad" class="col-sm-2 control-label">Ad</label>
                                     <div class="col-sm-10">
@@ -62,12 +70,13 @@
                                 </div>
                                 
                                <div class="form-group">
-                                    <label for="fileInput" class="col-sm-2 control-label">Ürün Resmi</label>
+                                    <label for="fileInput" class="col-sm-2 control-label">Profil Resmi</label>
                                     <div class="col-sm-10">
                                         <input id="fileInput" name="fileInput" class="form-control" type="file" />
                                         <div id="fileDisplayArea" style="margin-top: 2em;width: 100%;overflow-x: auto;"></div>   
                                     </div>
-                                </div>   
+                                </div>  
+                                
                             <div class="box-footer">
                                 <button type="button" id="profilSil" class="btn btn-info pull-right" style="margin-left: 5px">Profil Sil</button>
                                 <button type="button" id="profilDuzenle" class="btn btn-info pull-right" >Profil Duzenle</button>

@@ -13,11 +13,7 @@
                     <div class="portfolio-thumb">                         
                         <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/hakkimizda.png" />
                         <h2>Akzer Mobilya</h2>
-                        sadadasdaa asd asdadadada d asd ad a ad asd s
-                        sadadasdaa asd asdadadada d asd ad a ad asd s sadadasdaa asd asdadadada d asd ad a ad asd s
-                        sadadasdaa asd asdadadada d asd ad a ad asd ssadadasdaa asd asdadadada d asd ad a ad asd ssadadasdaa asd asdadadada d asd ad a ad asd s
-                        sadadasdaa asd asdadadada d asd ad a ad asd s<p></p>
-                        sadadasdaa asd asdadadada d asd ad a ad asd s
+                        <?php echo $model[0]["hakkinda"]; ?>
                     </div>
                 </div>
             </div>

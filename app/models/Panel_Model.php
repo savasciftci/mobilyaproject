@@ -98,7 +98,7 @@ class Panel_Model extends Model {
     
     //login select formu
     public function ayarselect($id) {
-        $sql = "SELECT site_baslik,site_aciklama,is_tel,cep_tel,site_mail,adres FROM ayar WHERE id=1";
+        $sql = "SELECT site_baslik,site_aciklama,is_tel,cep_tel,site_mail,adres,hakkinda FROM ayar WHERE id=1";
         return $this->db->select($sql);
     }
     

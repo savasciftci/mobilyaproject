@@ -62,7 +62,7 @@
                             <h4 class="modal-title">Kategori Ekle</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="box-body">
+                            <div class="box-body form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Kategori Adı</label>
                                     <div class="col-sm-9">
@@ -99,7 +99,7 @@
                             <h4 class="modal-title">Kategori Düzenle</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="box-body">
+                            <div class="box-body form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label">Kategori Adı</label>
                                     <div class="col-sm-9">

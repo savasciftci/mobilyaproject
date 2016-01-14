@@ -121,27 +121,27 @@ class Admin_Ajax extends Controller {
                                     if ($mail != "") {
                                         if ($adres != "") {
                                             if ($hakkinda != "") {
-                                            $id = 1;
-                                            if ($form->submit()) {
-                                                $dataAyar = array(
-                                                    'site_baslik' => $baslik,
-                                                    'site_aciklama' => $aciklama,
-                                                    'is_tel' => $is,
-                                                    'cep_tel' => $cep,
-                                                    'site_mail' => $mail,
-                                                    'adres' => $adres,
-                                                    'hakkinda' => $hakkinda
-                                                );
-                                            }
-                                            $result = $Panel_Model->ayarupdate($dataAyar, $id);
-                                            if ($result) {
-                                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                                $id = 1;
+                                                if ($form->submit()) {
+                                                    $dataAyar = array(
+                                                        'site_baslik' => $baslik,
+                                                        'site_aciklama' => $aciklama,
+                                                        'is_tel' => $is,
+                                                        'cep_tel' => $cep,
+                                                        'site_mail' => $mail,
+                                                        'adres' => $adres,
+                                                        'hakkinda' => $hakkinda
+                                                    );
+                                                }
+                                                $result = $Panel_Model->ayarupdate($dataAyar, $id);
+                                                if ($result) {
+                                                    $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                                } else {
+                                                    $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                                }
                                             } else {
-                                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                                $sonuc["hata"] = "Lütfen hakkında sayfası iceriğini giriniz";
                                             }
-                                             } else {
-                                            $sonuc["hata"] = "Lütfen hakkında sayfası iceriğini giriniz";
-                                        }
                                         } else {
                                             $sonuc["hata"] = "Lütfen adresi boş bırakmayınız.";
                                         }
@@ -288,54 +288,62 @@ class Admin_Ajax extends Controller {
                     $kategoriID = $form->values['kategoriID'];
                     $id = $form->values['id'];
                     if ($aciklama != "") {
-                        if ($fiyat != "") {
-                            if ($kategoriID != -1) {
-                                $realName = $_FILES['file']['name'];
-                                if ($realName != "") {
-                                    $image = new Upload($_FILES['file']);
-                                    if ($image->uploaded) {
-                                        // sadece resim formatları yüklensin
-                                        $image->allowed = array('image/*');
-                                        $image->image_min_height = 250;
-                                        $image->image_min_width = 250;
-                                        $image->image_max_height = 2000;
-                                        $image->image_max_width = 2000;
-                                        $image->file_new_name_body = time();
-                                        $image->file_name_body_pre = 'mobilya_';
-                                        $image->image_resize = true;
-                                        $image->image_ratio_crop = true;
-                                        $image->image_x = 900;
-                                        $image->image_y = 900;
-                                        $image->Process("upload/urunler");
-                                        if ($image->processed) {
-                                            if ($form->submit()) {
-                                                $dataUrun = array(
-                                                    'urun_aciklama' => $aciklama,
-                                                    'urun_fiyat' => $fiyat,
-                                                    'urun_kategori' => $kategoriID,
-                                                    'urun_resim' => $image->file_dst_name
-                                                );
-                                            }
-                                            $result = $Panel_Model->urunupdate($dataUrun, $id);
-                                            if ($result) {
-                                                $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
-                                            } else {
-                                                $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
-                                            }
+                        if ($kategoriID != -1) {
+                            $realName = $_FILES['file']['name'];
+                            if ($realName != "") {
+                                $image = new Upload($_FILES['file']);
+                                if ($image->uploaded) {
+                                    // sadece resim formatları yüklensin
+                                    $image->allowed = array('image/*');
+                                    $image->image_min_height = 250;
+                                    $image->image_min_width = 250;
+                                    $image->image_max_height = 2000;
+                                    $image->image_max_width = 2000;
+                                    $image->file_new_name_body = time();
+                                    $image->file_name_body_pre = 'mobilya_';
+                                    $image->image_resize = true;
+                                    $image->image_ratio_crop = true;
+                                    $image->image_x = 900;
+                                    $image->image_y = 900;
+                                    $image->Process("upload/urunler");
+                                    if ($image->processed) {
+                                        if ($form->submit()) {
+                                            $dataUrun = array(
+                                                'urun_aciklama' => $aciklama,
+                                                'urun_fiyat' => $fiyat,
+                                                'urun_kategori' => $kategoriID,
+                                                'urun_resim' => $image->file_dst_name
+                                            );
+                                        }
+                                        $result = $Panel_Model->urunupdate($dataUrun, $id);
+                                        if ($result) {
+                                            $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
                                         } else {
-                                            $sonuc["hata"] = $image->error;
+                                            $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
                                         }
                                     } else {
                                         $sonuc["hata"] = $image->error;
                                     }
                                 } else {
-                                    $sonuc["hata"] = "Lütfen Resim Seçiniz";
+                                    $sonuc["hata"] = $image->error;
                                 }
                             } else {
-                                $sonuc["hata"] = "Lütfen bir kategori seçiniz.";
+                                if ($form->submit()) {
+                                    $dataUrun = array(
+                                        'urun_aciklama' => $aciklama,
+                                        'urun_fiyat' => $fiyat,
+                                        'urun_kategori' => $kategoriID
+                                    );
+                                }
+                                $result = $Panel_Model->urunupdate($dataUrun, $id);
+                                if ($result) {
+                                    $sonuc["result"] = "Başarılı bir şekilde güncellenme olmuştur.";
+                                } else {
+                                    $sonuc["hata"] = "Bir hata oluştu.Tekrar deneyiniz";
+                                }
                             }
                         } else {
-                            $sonuc["hata"] = "Lütfen fiyatı boş girmeyiniz.";
+                            $sonuc["hata"] = "Lütfen bir kategori seçiniz.";
                         }
                     } else {
                         $sonuc["hata"] = "Lütfen açıklamayı boş girmeyiniz.";
@@ -351,7 +359,6 @@ class Admin_Ajax extends Controller {
                     $urunfiyat = $form->values['urunfiyat'];
                     if ($urunaciklama != "") {
                         if ($urunkategori != "") {
-                            if ($urunfiyat != "") {
                                 $realName = $_FILES['file']['name'];
                                 if ($realName != "") {
                                     $image = new Upload($_FILES['file']);
@@ -394,9 +401,7 @@ class Admin_Ajax extends Controller {
                                 } else {
                                     $sonuc["hata"] = "Lütfen Resim Seçiniz";
                                 }
-                            } else {
-                                $sonuc["hata"] = "Lütfen fiyat bölümünü  boş bırakmayınız.";
-                            }
+                           
                         } else {
                             $sonuc["hata"] = "Lütfen kategori seciniz";
                         }

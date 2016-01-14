@@ -10,9 +10,9 @@
         <!-- Start Recent Projects Carousel -->
         <div class="recent-projects">
             <h4 class="title"><span><?php
-                    $urunMiktar = count($model[1]);
+                    $katMiktar = count($model[1]);
                     $katId = $model[2];
-                    for ($u = 0; $u < $urunMiktar; $u++) {
+                    for ($u = 0; $u < $katMiktar; $u++) {
                         if ($model[0][0]["urun_kategori"] == $model[1][$u]["ID"]) {
                             
                             echo $model[1][$u]["ad"];
@@ -21,6 +21,8 @@
                     }
                     ?></span></h4>
             <?php
+            $urunVarmi=0;
+            $urunMiktar = count($model[0]);
             for ($u = 0; $u < $urunMiktar; $u++) {
                     ?>
                     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
@@ -41,7 +43,9 @@
                         </div>
                     </div>
                     <?php
-                
+                $urunVarmi++;
+            }if($urunVarmi==0){
+                echo '<p><b>Bu kategoriye henüz hiç ürün eklenmemiştir ! </b>';
             }
             ?>
 

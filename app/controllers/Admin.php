@@ -12,9 +12,15 @@ class Admin extends Controller {
 
     public function home() {
         if (session::get("login") == true) {
+             $model = $this->load->model("Panel_Model");
+             $durum=array();
+              $urunler = $model->urunselect();
+              $kategoriler = $model->kategoriselect();
+              $durum[0] = count($urunler);
+              $durum[1] = count($kategoriler);
         $this->load->view("Template_BackEnd/header");
         $this->load->view("Template_BackEnd/left");
-        $this->load->view("Template_BackEnd/home");
+        $this->load->view("Template_BackEnd/home",$durum);
         $this->load->view("Template_BackEnd/footer");
          }
         else{

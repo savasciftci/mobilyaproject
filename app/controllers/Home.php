@@ -74,7 +74,7 @@ class Home extends Controller {
           $urun[$b]['urun_kategori'] = $urunlistee['urun_kategori'];
           $b++;
           }
-
+          error_log("b sayısı:".$b);
           //kategorileri listeleme
           $kategoriliste = $model->kategoriselect();
           $a = 0;
@@ -93,9 +93,25 @@ class Home extends Controller {
     }
 
     public function hakkimizda() {
-        
-        $this->load->view("Template_FrontEnd/header", $this->header());
-        $this->load->view("Template_FrontEnd/hakkimizda");
+                $model = $this->load->model("Panel_Model");
+
+        $kategori = array();
+        $ayar = array();
+        $ayarlar = $model->ayarselect(1);
+        $ayarlar['hakkinda'];
+
+
+        //kategorileri listeleme
+        $kategoriliste = $model->kategoriselect();
+        $a = 0;
+        foreach ($kategoriliste as $kategorilistee) {
+            $kategori[$a]['ID'] = $kategorilistee['ID'];
+            $kategori[$a]['ad'] = $kategorilistee['ad'];
+            $a++;
+        }
+
+        $this->load->view("Template_FrontEnd/header",$kategori);
+        $this->load->view("Template_FrontEnd/hakkimizda",$ayarlar);
         $this->load->view("Template_FrontEnd/footer");
     }
 

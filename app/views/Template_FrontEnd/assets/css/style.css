@@ -2967,7 +2967,7 @@ ul.icons-list li i {
 .portfolio-item .portfolio-thumb {
     position: relative;
     overflow: hidden;
-    padding-bottom: 120px;
+    padding-bottom: 10px;
 }
 
 .portfolio-item .portfolio-thumb .thumb-overlay {

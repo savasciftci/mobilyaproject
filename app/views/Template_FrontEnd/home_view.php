@@ -70,10 +70,11 @@
 <!-- Start Recent Projects Carousel -->
 <?php
 $kSayisi = count($model[1]);
+$urunVarmi = 0;
 for ($k = 0; $k < $kSayisi; $k++) {
     ?>
     <div class="recent-projects">
-        <h4 class="title"><span><?php echo $model[1][$k]["ad"] ?></span></h4>
+        <h4 class="title"><span><?php echo $urunVarmi ==0 ? $model[1][$k]["ad"] : null;?></span></h4>
         <div class="projects-carousel touch-carousel">
             <?php
             $uSayisi = count($model[0]);
@@ -97,6 +98,7 @@ for ($k = 0; $k < $kSayisi; $k++) {
                             </div>
                         </div>
                         <?php
+                        $urunVarmi++;
                     }
                 }            
             ?>

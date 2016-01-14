@@ -130,7 +130,7 @@
                                                                                     <img src="<?php echo SITE_BACK_ASSETS_DISTIMG; ?>/user2-160x160.jpg" class="img-circle" alt="User Image">
                                                                                     <?php }?> 
                                                                                     <p>
-                                                                                            <?php echo Session::get("kadi"); ?> - Web Developer
+                                                                                            <?php echo Session::get("kadi"); ?> - Yönetici
                                                                                         </p>
                                                                                 </li>
                                                                                 <!-- Menu Footer-->

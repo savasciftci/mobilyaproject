@@ -70,37 +70,43 @@
 <!-- Start Recent Projects Carousel -->
 <?php
 $kSayisi = count($model[1]);
-$urunVarmi = 0;
+$urunVarmi = array();
+$urunVarmiKi = array();
+$uSayisi = count($model[0]);
 for ($k = 0; $k < $kSayisi; $k++) {
+    for ($a = 0; $a < $uSayisi; $a++) {
+        if ($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]) {
+            $urunVarmi[$k] ++;
+        }
+    }
     ?>
     <div class="recent-projects">
-        <h4 class="title"><span><?php echo $urunVarmi ==0 ? $model[1][$k]["ad"] : null;?></span></h4>
+        <h4 class="title"><span><?php echo $urunVarmi[$k] != 0 ? $model[1][$k]["ad"] : null; ?></span></h4>
         <div class="projects-carousel touch-carousel">
-            <?php
-            $uSayisi = count($model[0]);
 
-                for ($a = 0; $a < $uSayisi; $a++) {
-                    if ($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]) {
-                        ?>
-                        <div class="portfolio-item item">
-                            <div class="portfolio-border">
-                                <div class="portfolio-thumb">
-                                    <a class="lightbox" title="<?php echo $model[0][$a]["urun_aciklama"]; ?>" href="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>">
-                                        <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
-                                        <img alt="" src="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>" />
-                                    </a>
-                                </div>
-                                <div class="portfolio-details">
-                                    <a href="#">
-                                        <h4><?php echo $model[0][$a]["urun_aciklama"]; ?></h4>
-                                    </a>
-                                </div>
+            <?php
+            for ($a = 0; $a < $uSayisi; $a++) {
+                if ($model[1][$k]["ID"] == $model[0][$a]["urun_kategori"]) {
+                    ?>
+                    <div class="portfolio-item item">
+                        <div class="portfolio-border">
+                            <div class="portfolio-thumb">
+                                <a class="lightbox" title="<?php echo $model[0][$a]["urun_aciklama"]; ?>" href="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>">
+                                    <div class="thumb-overlay"><i class="fa fa-arrows-alt"></i></div>
+                                    <img alt="" src="<?php echo SITE_URLUResim . $model[0][$a]["urun_resim"]; ?>" />
+                                </a>
+                            </div>
+                            <div class="portfolio-details">
+                                <a href="#">
+                                    <h4><?php echo $model[0][$a]["urun_aciklama"]; ?></h4>
+                                </a>
                             </div>
                         </div>
-                        <?php
-                        $urunVarmi++;
-                    }
-                }            
+                    </div>
+                    <?php
+                    $urunVarmi++;
+                }
+            }
             ?>
         </div>
     </div>

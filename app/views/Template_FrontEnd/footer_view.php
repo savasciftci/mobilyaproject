@@ -5,7 +5,7 @@
         <!-- Start Copyright -->
         <div class="copyright-section">
             <div class="row" >
-                <p>&copy 2016 AKZER MOBİLYA - Tüm Hakları Saklıdır. <div style="text-align:right;">Bu web sitesi BAYSS tarafından yapılmıştır.</div></p> 
+                <p>&copy 2016 AKZER MOBİLYA - Tüm Hakları Saklıdır. <div style="text-align:right;padding-bottom: 5px">Bu web sitesi BAYSS tarafından yapılmıştır.</div></p> 
                
             </div>
         </div>

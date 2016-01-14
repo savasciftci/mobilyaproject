@@ -1,6 +1,4 @@
 <aside class="main-sidebar">
-
-
     <section class="sidebar">
         <!-- Sidebar user panel -->
         <div class="user-panel">
@@ -22,16 +20,13 @@
                 <a href="<?php echo SITE_URLA; ?>/Urunler">
                     <i class="fa fa-dashboard"></i> <span>ÜRÜNLER</span> <i class=" pull-right"></i>
                 </a>
-               
             </li>
             <li>
                 <a href="<?php echo SITE_URLA; ?>/Kategoriler">
                     <i class="fa fa-dashboard"></i> <span>KATEGORİLER</span> <i class=" pull-right"></i>
                 </a>
-               
             </li>
             <li><a href="<?php echo SITE_URLA; ?>/GenelAyarlar"><i class="fa fa-cog"></i> <span>GENEL AYARLAR</span></a></li>
-
         </ul>
     </section>
 </aside>

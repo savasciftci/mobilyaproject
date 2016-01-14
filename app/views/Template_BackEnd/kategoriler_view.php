@@ -1,5 +1,5 @@
 <script src="<?php echo SITE_BACK_ASSETS_JS; ?>/islem.js" type="text/javascript"></script>
-<script src="<?php echo SITE_BACK_ASSETS_BOOTSTRAPJS; ?>/bootstrap.min.js"></script>
+
 <style type="text/css">
     .well { background: #fff; text-align: center; }
     .modal { text-align: left; }
@@ -31,13 +31,12 @@
 
                                             <td><?php echo $model[$k]["ad"]; ?></td>
                                             <td><?php echo $model[$k]["anasayfa_durum"] == 1 ? '<i class="fa fa-check "></i>  Gözüksün' : '<i class="fa  fa-times "></i>  Gözükmesin'; ?></td>
-                                            <td><a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-success" style="cursor:pointer" title="Düzenle"><i  class="fa fa-edit"></i></a>
-                                                <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a></td>
-
-
+                                            <td>
+                                                <a id="duzenle" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-success" style="cursor:pointer" title="Düzenle"><i  class="fa fa-edit"></i></a>
+                                                <a id="ksil" value="<?php echo $model[$k]["ID"]; ?>" class="btn btn-sm btn-danger" style="cursor:pointer" title="Sil"><i  class="fa fa-trash"></i></a>
+                                            </td>
                                         </tr>
                                     <?php } ?>
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -51,9 +50,7 @@
                     </div><!-- /.box -->
                 </div><!-- /.col -->
             </div><!-- /.row -->
-
         </section><!-- /.content -->
-
         <div id="katEkleModal" class="modal fade">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -90,7 +87,6 @@
             </div>
         </div>
     </div>
-
     <div id="myModal" class="modal fade">
         <div class="modal-dialog">
             <input type="hidden" id="sakliID" value="">
@@ -129,14 +125,12 @@
     </div><!-- /.content-wrapper -->
 </div>
 <!-- Control Sidebar -->
-
 <!-- Add the sidebar's background. This div must be placed
      immediately after the control sidebar -->
+<script src="<?php echo SITE_BACK_ASSETS_BOOTSTRAPJS; ?>/bootstrap.min.js"></script>
 <div class="control-sidebar-bg"></div>
-
-
-<!-- jQuery 2.1.4 --> <script src="<?php echo SITE_BACK_ASSETS_PLUGINS; ?>/jQuery/jQuery-2.1.4.min.js"></script>
-
+<!-- jQuery 2.1.4 -->
+<script src="<?php echo SITE_BACK_ASSETS_PLUGINS; ?>/jQuery/jQuery-2.1.4.min.js"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="<?php echo SITE_BACK_ASSETS_BOOTSTRAPJS; ?>/bootstrap.min.js"></script>
 <!-- DataTables -->
@@ -163,12 +157,12 @@
             "autoWidth": false
         });
     });
-    
-    $(".sidebar-toggle").click(function() {
-	if($('body').hasClass("sidebar-collapse" )){
-		 $('body').removeClass("sidebar-collapse");
-	}else{
-		 $('body').addClass("sidebar-collapse");
-	}
-});
+
+    $(".sidebar-toggle").click(function () {
+        if ($('body').hasClass("sidebar-collapse")) {
+            $('body').removeClass("sidebar-collapse");
+        } else {
+            $('body').addClass("sidebar-collapse");
+        }
+    });
 </script>

@@ -90,7 +90,7 @@
                                 <a id="hakkimizda" href="<?php echo SITE_URL; ?>/home/hakkimizda">HAKKIMIZDA</a>
                             </li>
                             <li>
-                                <a id="urunlerimiz" href="<?php echo SITE_URL; ?>/home/urunler">ÜRÜNLERİMİZ</a>
+                                <a id="urunlerimiz" href="">ÜRÜNLERİMİZ</a>
                                 <form action="<?php echo SITE_URL; ?>/home/urunler" style="cursor:pointer">
                                     <ul class="dropdown">
                                         <?php

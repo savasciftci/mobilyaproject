@@ -361,9 +361,9 @@ $(document).on('click', '#katduzenle', function (e) {
                 $("tr#kattable_" + id + " td:eq(0)").text(ad);
                 var anasayfadurumText;
                 if(anasayfadurum==1){
-                    anasayfadurumText='=> Gözüksün';
+                    anasayfadurumText='Değiştirildi => Gözüksün';
                 }else{
-                    anasayfadurumText='=> Gözükmesin';
+                    anasayfadurumText='Değiştirildi => Gözükmesin';
                 }
                 $("tr#kattable_" + id + " td:eq(1)").text(anasayfadurumText);
                 reset();

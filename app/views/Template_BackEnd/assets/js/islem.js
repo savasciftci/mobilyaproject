@@ -359,7 +359,13 @@ $(document).on('click', '#katduzenle', function (e) {
                 return false;
             } else {
                 $("tr#kattable_" + id + " td:eq(0)").text(ad);
-                $("tr#kattable_" + id + " td:eq(1)").text(anasayfadurum);
+                var anasayfadurumText;
+                if(anasayfadurum==1){
+                    anasayfadurumText='=> Gözüksün';
+                }else{
+                    anasayfadurumText='=> Gözükmesin';
+                }
+                $("tr#kattable_" + id + " td:eq(1)").text(anasayfadurumText);
                 reset();
                 alertify.success(cevap.result);
                 $("#myModal").modal('hide');

@@ -68,7 +68,6 @@
 <!-- Divider -->
 <div class="hr1 margin-top"></div>
 <!-- Start Recent Projects Carousel -->
-
 <?php
 $kSayisi = count($model[1]);
 for ($k = 0; $k < $kSayisi; $k++) {
@@ -99,13 +98,11 @@ for ($k = 0; $k < $kSayisi; $k++) {
                         </div>
                         <?php
                     }
-                }
-            
+                }            
             ?>
         </div>
     </div>
 <?php } ?>
-
 <!-- End Recent Projects Carousel -->
 <div class="hr1 margin-60"></div>
 

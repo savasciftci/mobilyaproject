@@ -412,5 +412,14 @@ window.onload = function () {
             dosyaAlani.innerHTML = "Dosya Yüklenemedi!!"
         }
     });
+
+$(".sidebar-toggle").click(function() {
+	if($('body').hasClass("sidebar-collapse" )){
+		 $('body').removeClass("sidebar-collapse");
+	}else{
+		 $('body').addClass("sidebar-collapse");
+	}
+});
+
 }
 

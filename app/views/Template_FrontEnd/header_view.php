@@ -91,13 +91,15 @@
                             </li>
                             <li>
                                 <a id="urunlerimiz" href="<?php echo SITE_URL; ?>/home/urunler">ÜRÜNLERİMİZ</a>
-                                <form action="<?php echo SITE_URL; ?>/home/urunler">
+                                <form action="<?php echo SITE_URL; ?>/home/urunler" style="cursor:pointer">
                                     <ul class="dropdown">
                                         <?php
                                         $kSayisi = count($model);
                                         for ($k = 0; $k < $kSayisi; $k++) {
                                             ?>
-                                            <li><a class="urunIslem" id ="<?php echo $model[$k]["ID"]; ?>" ><?php echo $model[$k]["ad"] ?></a></li>
+                                            <li>
+                                                <a class="urunIslem" id ="<?php echo $model[$k]["ID"]; ?>" ><?php echo $model[$k]["ad"] ?></a>
+                                            </li>
                                         <?php } ?>
                                     </ul>
                                 </form>

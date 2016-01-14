@@ -1,4 +1,5 @@
 <script src="<?php echo SITE_BACK_ASSETS_JS; ?>/islem.js" type="text/javascript"></script>
+<script src="<?php echo SITE_BACK_ASSETS_BOOTSTRAPJS; ?>/bootstrap.min.js"></script>
 <style type="text/css">
     .well { background: #fff; text-align: center; }
     .modal { text-align: left; }
@@ -162,4 +163,12 @@
             "autoWidth": false
         });
     });
+    
+    $(".sidebar-toggle").click(function() {
+	if($('body').hasClass("sidebar-collapse" )){
+		 $('body').removeClass("sidebar-collapse");
+	}else{
+		 $('body').addClass("sidebar-collapse");
+	}
+});
 </script>

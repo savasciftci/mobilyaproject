@@ -10,7 +10,7 @@
                 <div class="portfolio-thumb">
                     <h2>Akzer Mobilya</h2>
                     <hr>
-                    <img src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" />
+                    <img src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/iletisim.png" />
                     <div class="solalt">
                         <h3 class="title" style="border-color: rgba(85, 85, 85, 0.247059)"></h3>
                         <div class="adress">

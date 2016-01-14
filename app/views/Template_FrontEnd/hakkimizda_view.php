@@ -10,8 +10,8 @@
         <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
             <div class="portfolio-item item">
                 <div class="portfolio-border">
-                    <div class="portfolio-thumb">  
-                        <img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/hakkimizda.png" />
+                    <div class="portfolio-thumb">  <br>
+                        <center><img alt="" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/hakkimizda.png" /></center> 
                         <h2>Akzer Mobilya</h2>
                         <?php echo $model[0]["hakkinda"]; ?>
                     </div>

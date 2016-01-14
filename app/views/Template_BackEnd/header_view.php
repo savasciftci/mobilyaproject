@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>AdminPaneli | Akzer Mobilya</title>
     <!-- Tell the browser to be responsive to screen width -->
+     <link rel="shortcut icon" href="<?php echo SITE_FRONT_ASSETS_DISTIMG;?>/favicon.ico">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?php echo SITE_BACK_ASSETS_BOOTSTRAPCSS; ?>/bootstrap.min.css">

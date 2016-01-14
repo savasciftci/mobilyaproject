@@ -5,13 +5,13 @@
     <head>
         <!-- Basic -->
     <title>Akzer Mobilya</title>
-    <!-- Define Charset -->
+    <link rel="shortcut icon" href="<?php echo SITE_FRONT_ASSETS_DISTIMG;?>/favicon.ico">
     <meta charset="utf-8">
     <!-- Responsive Metatag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- Page Description and Author -->
-    <meta name="description" content="Margo - Responsive HTML5 Template">
-    <meta name="author" content="iThemesLab">
+    <meta name="description" content="Akzer mobilya,kayseri mobilya,akzer,mobilya">
+    <meta name="author" content="BAYSS">
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="<?php echo SITE_FRONT_ASSETS_DISTCSS; ?>/bootstrap.min.css" type="text/css" media="screen">
         <!-- Font Awesome CSS -->

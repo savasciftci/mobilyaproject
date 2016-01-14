@@ -7,8 +7,6 @@
                 <li data-target="#main-slide" data-slide-to="0" class="active"></li>
                 <li data-target="#main-slide" data-slide-to="1"></li>
                 <li data-target="#main-slide" data-slide-to="2"></li>
-                <li data-target="#main-slide" data-slide-to="3"></li>
-                <li data-target="#main-slide" data-slide-to="4"></li>
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
@@ -19,12 +17,6 @@
                 </div><!--/ Carousel item end -->
                 <div class="item">
                     <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg3.jpg" alt="slider">
-                </div>
-                <div class="item">
-                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg4.jpg" alt="slider">
-                </div>
-                <div class="item">
-                    <img class="img-responsive" src="<?php echo SITE_FRONT_ASSETS_DISTIMG; ?>/slider/bg5.jpg" alt="slider">
                 </div>
             </div>
             <a class="left carousel-control" href="#main-slide" data-slide="prev">
@@ -47,7 +39,7 @@
             </div>
             <div class="service-content">
                 <h4>Yerinde Ölçüm</h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+                <p>İstediğiniz ürünleri,isteğinize uygun boyutlarda ve şekilde olması amacıyla yerinde ölçüm hizmetini sizlere sunmaktayız.</p>
             </div>
         </div>
     </div>
@@ -59,7 +51,7 @@
             </div>
             <div class="service-content">
                 <h4>Yerinde Montaj</h4>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem Ipsum is simply dummy text of the printing.</p>
+                <p>İstediğiniz ürünlerin üretimini yaptıkdan sonra kullanmak istediğiniz yere kadar getirip yerinde montajınızı yapmaktayız.</p>
             </div>
         </div>
     </div>
